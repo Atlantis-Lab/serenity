@@ -29,6 +29,7 @@ describe('project reply', () => {
       imports: [ServiceModule, ClientsModule.register([collaborationClientOptions])],
     })
       .overrideProvider(BUS_SYMBOLS.Transport)
+      // @ts-ignore
       .useValue(new MemoryQueue(new Logger()))
       .compile()
 
@@ -60,12 +61,12 @@ describe('project reply', () => {
 
     const { result: reply } = await collaborationService
       .addProjectReply({
-        projectId: project.result.id,
+        projectId: (project as any).result.id,
         specialistId: uuid(),
         message: 'message',
       })
       .toPromise()
 
-    expect(reply.id).toBeDefined()
+    expect((reply as any).id).toBeDefined()
   })
 })

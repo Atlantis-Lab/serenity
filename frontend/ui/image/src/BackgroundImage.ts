@@ -7,5 +7,5 @@ export const BackgroundImage = styled.div(
   }),
   layout,
   space,
-  background,
+  background
 )

@@ -2,7 +2,7 @@
 import React                     from 'react'
 import { FormattedRelativeTime } from 'react-intl'
 
-const getValueUnit = diff => {
+const getValueUnit = (diff) => {
   if (diff <= -86400) {
     return [Math.round(diff / 86400), 'day']
   } else if (diff <= -3600) {

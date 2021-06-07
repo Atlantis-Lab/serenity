@@ -1,6 +1,6 @@
 import gql          from 'graphql-tag'
 
-import { useQuery } from '@apollo/react-hooks'
+import { useQuery } from '@apollo/client'
 
 export const query = gql`
   query Specialists($filters: SpecialistsFilter) {
@@ -70,7 +70,7 @@ export const query = gql`
   }
 `
 
-export const useData = id => {
+export const useData = (id) => {
   const { data } = useQuery(query, {
     variables: {
       filters: {

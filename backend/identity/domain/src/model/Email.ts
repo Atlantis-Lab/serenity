@@ -5,7 +5,7 @@ export class Email {
 
   verified: boolean = false
 
-  verificationToken: string
+  verificationToken: string | null
 
   constructor(address: string) {
     this.address = address

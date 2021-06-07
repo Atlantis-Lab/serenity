@@ -13,8 +13,8 @@ const bootstrap = async () => {
     app.use(
       oathkeeperAuth(
         process.env.OATHKEEPER_DECISIONS_URL || 'http://serenity-oathkeeper-api:4456/decisions',
-        { host: 'serenity.aunited.dev' },
-      ),
+        { host: 'serenity.aunited.dev' }
+      )
     )
   }
 

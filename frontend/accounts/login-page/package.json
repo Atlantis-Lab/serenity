@@ -1,0 +1,16 @@
+{
+  "name": "@accounts/login-page",
+  "version": "0.0.0",
+  "license": "MIT",
+  "main": "src/index.tsx",
+  "devDependencies": {
+    "@accounts/login-fragment": "0.0.0",
+    "@ui/icons": "workspace:frontend/ui/icons",
+    "@ui/layout": "workspace:frontend/ui/layout"
+  },
+  "dependencies": {
+    "react": "16.14.0",
+    "react-helmet": "^5.2.0",
+    "react-intl": "5.3.2"
+  }
+}

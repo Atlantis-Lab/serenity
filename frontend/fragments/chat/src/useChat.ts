@@ -2,7 +2,7 @@ import gql                                    from 'graphql-tag'
 /* eslint-disable no-else-return */
 import { useCallback, useEffect, useReducer } from 'react'
 
-import { useMutation, useQuery }              from '@apollo/react-hooks' // eslint-disable-line import/no-extraneous-dependencies
+import { useMutation, useQuery }              from '@apollo/client' // eslint-disable-line import/no-extraneous-dependencies
 
 export const query = gql`
   query Me {
@@ -95,14 +95,14 @@ const reducer = (state, action) => {
   } else if (action.type === 'LOAD') {
     const messages = {}
     const discussions = {}
-    action.discussions.forEach(item => {
+    action.discussions.forEach((item) => {
       messages[item.recipient.id] = ''
       discussions[item.recipient.id] = item
     })
 
     return {
       ...state,
-      discussions: Object.keys(discussions).map(item => discussions[item]),
+      discussions: Object.keys(discussions).map((item) => discussions[item]),
       messages,
     }
   }
@@ -129,7 +129,7 @@ export const useChat = () => {
     }
 
     setTimeout(() => pool(), REFETCH_TIMEOUT)
-  }, [])
+  }, [refetch])
 
   const [state, dispatch] = useReducer(reducer, initialState)
 
@@ -141,7 +141,7 @@ export const useChat = () => {
 
   const onChangeMessage = useCallback(
     (value, id) => dispatch({ type: 'CHANGE_MESSAGES', id, value }),
-    [],
+    []
   )
 
   function onAddChat(value) {
@@ -152,7 +152,7 @@ export const useChat = () => {
 
   const [saveMessage, { data: messageData, loading }] = useMutation<any>(mutation)
 
-  const onSave = recipientId => {
+  const onSave = (recipientId) => {
     saveMessage({
       variables: {
         input: {

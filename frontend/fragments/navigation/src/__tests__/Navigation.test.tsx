@@ -14,7 +14,7 @@ describe('Navigation fragment', () => {
           <ThemeProvider>
             <Navigation />
           </ThemeProvider>
-        </IntlProvider>,
+        </IntlProvider>
       )
 
       expect(asFragment()).toMatchSnapshot()

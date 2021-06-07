@@ -1,4 +1,4 @@
-import { css } from 'emotion'
+import { css } from '@emotion/react'
 
 export const collapseStyles = css`
   background-color: #ffffff;

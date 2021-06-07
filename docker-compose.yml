@@ -57,7 +57,7 @@ services:
       - MINIO_SECRET_KEY=secretkey
     command: server data
     labels:
-      - 'traefik.frontend.rule=Host:s3.serenity.local.aunited.dev'
+      - 'traefik.frontend.rule=Host:s3.serenity.local.atls.tech'
       - 'traefik.protocol=http'
       - 'traefik.port=9000'
     depends_on:
@@ -71,51 +71,48 @@ services:
     environment:
       - POSTGRESQL_PASSWORD=password
       - POSTGRESQL_DATABASE=db
+    ports:
+      - 5432:5432
 
-  hydra-migrate:
-    image: oryd/hydra:v1.6.0
-    environment:
-      - DSN=postgres://postgres:password@db:5432/db?sslmode=disable&max_conns=20&max_idle_conns=4
-    command: migrate sql -e --yes
-    restart: on-failure
-
-  hydra-configure:
-    image: oryd/hydra:v1.6.0
-    environment:
-      - HYDRA_ADMIN_URL=http://hydra:4445
+  kratos-migrate:
+    image: oryd/kratos:v0.5.5-alpha.1
     volumes:
       - ./config/ory:/config
-    command: clients import --skip-tls-verify /config/hydra/clients/public-app.json
-    restart: on-failure
-
-  hydra:
-    image: oryd/hydra:v1.6.0
-    command: serve all --skip-tls-verify --dangerous-force-http
     environment:
-      - LOG_LEVEL=trace
-      - URLS_SELF_ISSUER=https://sso.serenity.local.aunited.dev
-      - URLS_CONSENT=https://accounts.serenity.local.aunited.dev/consent
-      - URLS_LOGIN=https://accounts.serenity.local.aunited.dev/
-      - URLS_LOGOUT=https://accounts.serenity.local.aunited.dev/signout
-      - URLS_POST_LOGOUT_REDIRECT=https://accounts.serenity.local.aunited.dev/signout/complete
-      - URL_POST_LOGOUT_REDIRECT=https://accounts.serenity.local.aunited.dev/signout
-      - SECRETS_SYSTEM=supersecretvalue
-      - OIDC_SUBJECT_IDENTIFIERS_PAIRWISE_SALT=supersecretvalue
-      - OIDC_SUBJECT_IDENTIFIERS_ENABLED=public,pairwise
       - DSN=postgres://postgres:password@db:5432/db?sslmode=disable&max_conns=20&max_idle_conns=4
-    restart: unless-stopped
-    labels:
-      - 'traefik.frontend.rule=Host:sso.serenity.local.aunited.dev'
-      - 'traefik.protocol=http'
-      - 'traefik.port=4444'
+    command: -c /config/kratos/kratos.yml migrate sql -e --yes
+    restart: on-failure
+    networks:
+      - default
     depends_on:
-      - hydra-configure
-      - hydra-migrate
-      - traefik
       - db
+
+  kratos:
+    image: oryd/kratos:v0.5.5-alpha.1
+    environment:
+      - DSN=postgres://postgres:password@db:5432/db?sslmode=disable&max_conns=20&max_idle_conns=4
+    volumes:
+      - ./config/ory:/config
+    labels:
+      - 'traefik.frontend.rule=Host:kratos.serenity.local.atls.tech'
+      - 'traefik.protocol=http'
+      - 'traefik.port=4433'
     networks:
       - default
       - traefik
+    depends_on:
+      - kratos-migrate
+      - mailslurper
+      - traefik
+      - db
+    restart: unless-stopped
+    command: serve -c /config/kratos/kratos.yml --dev
+
+  mailslurper:
+    image: oryd/mailslurper:latest-smtps
+    ports:
+      - '4436:4436'
+      - '4437:4437'
 
   oathkeeper:
     image: oryd/oathkeeper:v0.38.2-beta.1
@@ -126,11 +123,11 @@ services:
       - DATABASE_URL=postgres://postgres:password@db:5432/db?sslmode=disable&max_conns=20&max_idle_conns=4
     restart: unless-stopped
     labels:
-      - 'traefik.site.frontend.rule=Host:serenity.local.aunited.dev'
-      - 'traefik.admin.frontend.rule=Host:admin.serenity.local.aunited.dev'
-      - 'traefik.cabinet.frontend.rule=Host:cabinet.serenity.local.aunited.dev'
-      - 'traefik.public_gateway.frontend.rule=Host:public-gateway.serenity.local.aunited.dev'
-      - 'traefik.private_gateway.frontend.rule=Host:private-gateway.serenity.local.aunited.dev'
+      - 'traefik.site.frontend.rule=Host:serenity.local.atls.tech'
+      - 'traefik.admin.frontend.rule=Host:admin.serenity.local.atls.tech'
+      - 'traefik.cabinet.frontend.rule=Host:cabinet.serenity.local.atls.tech'
+      - 'traefik.public_gateway.frontend.rule=Host:public-gateway.serenity.local.atls.tech'
+      - 'traefik.private_gateway.frontend.rule=Host:private-gateway.serenity.local.atls.tech'
       - 'traefik.port=4455'
     depends_on:
       - cookie-store
@@ -190,29 +187,26 @@ services:
     working_dir: /workspace
     volumes:
       - ./:/workspace
-      - modules:/workspace/node_modules
     entrypoint: yarn accounts:dev
     environment:
       - NODE_TLS_REJECT_UNAUTHORIZED=0
-      - OAUTH_AUTHORIZATION_URL=https://sso.serenity.local.aunited.dev/oauth2/auth
-      - OAUTH_TOKEN_URL=https://sso.serenity.local.aunited.dev/oauth2/token
-      - OAUTH_USERINFO_URL=https://sso.serenity.local.aunited.dev/userinfo
-      - OAUTH_CALLBACK_URL=https://accounts.serenity.local.aunited.dev/callback
-      - OAUTH_CLIENT_ID=app
-      - OAUTH_CLIENT_SECRET=app-client-secret
+      - KRATOS_PUBLIC_URL=http://kratos:4433/
+      - KRATOS_BROWSER_URL=https://kratos.serenity.local.atls.tech/
+      - KRATOS_ADMIN_URL=http://kratos:4434/
+      - BASE_URL=https://accounts.serenity.local.atls.tech
     labels:
-      - 'traefik.frontend.rule=Host:accounts.serenity.local.aunited.dev'
+      - 'traefik.frontend.rule=Host:accounts.serenity.local.atls.tech'
       - 'traefik.protocol=http'
       - 'traefik.port=3000'
     depends_on:
       - traefik
-      - hydra
+      - kratos
       - redis
     networks:
       - default
       - traefik
     extra_hosts:
-      - 'sso.serenity.local.aunited.dev:172.16.101.99'
+      - 'sso.serenity.local.atls.tech:172.16.101.99'
 
   cookie-store:
     image: node:14-alpine
@@ -223,10 +217,10 @@ services:
     entrypoint: yarn cookie-store:dev
     environment:
       - NODE_TLS_REJECT_UNAUTHORIZED=0
-      - OAUTH_AUTHORIZATION_URL=https://sso.serenity.local.aunited.dev/oauth2/auth
-      - OAUTH_TOKEN_URL=https://sso.serenity.local.aunited.dev/oauth2/token
-      - OAUTH_USERINFO_URL=https://sso.serenity.local.aunited.dev/userinfo
-      - OAUTH_CALLBACK_URL=https://accounts.serenity.local.aunited.dev/callback
+      - OAUTH_AUTHORIZATION_URL=https://sso.serenity.local.atls.tech/oauth2/auth
+      - OAUTH_TOKEN_URL=https://sso.serenity.local.atls.tech/oauth2/token
+      - OAUTH_USERINFO_URL=https://sso.serenity.local.atls.tech/userinfo
+      - OAUTH_CALLBACK_URL=https://accounts.serenity.local.atls.tech/callback
       - OAUTH_CLIENT_ID=app
       - OAUTH_CLIENT_SECRET=app-client-secret
     depends_on:
@@ -243,10 +237,10 @@ services:
       - NODE_TLS_REJECT_UNAUTHORIZED=0
       - NODE_ICU_DATA=/workspace/node_modules/full-icu
       - PUBLIC_GATEWAY_URL=${PUBLIC_GATEWAY_URL}
-      - WEB_VERSION_URL=https://email.serenity.local.aunited.dev/s
-      - ACCOUNTS_URL=https://accounts.serenity.local.aunited.dev
+      - WEB_VERSION_URL=https://email.serenity.local.atls.tech/s
+      - ACCOUNTS_URL=https://accounts.serenity.local.atls.tech
     labels:
-      - 'traefik.frontend.rule=Host:email.serenity.local.aunited.dev'
+      - 'traefik.frontend.rule=Host:email.serenity.local.atls.tech'
       - 'traefik.protocol=http'
       - 'traefik.port=3000'
     depends_on:
@@ -273,7 +267,7 @@ services:
       - modules:/workspace/node_modules
     entrypoint: yarn run private-gateway:dev
     labels:
-      - 'traefik.frontend.rule=Host:private-gateway.serenity.local.aunited.dev'
+      - 'traefik.frontend.rule=Host:private-gateway.serenity.local.atls.tech'
       - 'traefik.protocol=http'
       - 'traefik.port=3000'
 
@@ -335,7 +329,7 @@ services:
       - GOOGLE_APPLICATION_CREDENTIALS=/workspace/credentials.json
       - GCS_BUCKET=${GCS_BUCKET}
       - FILES_REGION=eu-central-1
-      - FILES_ENDPOINT=https://s3.serenity.local.aunited.dev
+      - FILES_ENDPOINT=https://s3.serenity.local.atls.tech
       - FILES_ACCESS_KEY=accesskey
       - FILES_SECRET_KEY=secretkey
       - FILES_BUCKET=dev
@@ -344,7 +338,7 @@ services:
       - s3
       - db
     extra_hosts:
-      - 's3.serenity.local.aunited.dev:172.16.101.99'
+      - 's3.serenity.local.atls.tech:172.16.101.99'
 
 volumes:
   modules:

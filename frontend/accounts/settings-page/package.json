@@ -1,0 +1,17 @@
+{
+  "name": "@accounts/settings-page",
+  "version": "0.0.0",
+  "license": "MIT",
+  "main": "src/index.tsx",
+  "devDependencies": {
+    "@accounts/settings-fragment": "workspace:frontend/accounts/settings-fragment",
+    "@ui/icons": "workspace:frontend/ui/icons",
+    "@ui/layout": "workspace:frontend/ui/layout",
+    "@ui/link": "workspace:frontend/ui/link"
+  },
+  "peerDependencies": {
+    "react": "16.14.0",
+    "react-helmet": "^5.2.0",
+    "react-intl": "5.3.2"
+  }
+}

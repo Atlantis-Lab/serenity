@@ -14,7 +14,7 @@ describe('Footer fragment', () => {
           <ThemeProvider>
             <Footer />
           </ThemeProvider>
-        </IntlProvider>,
+        </IntlProvider>
       )
 
       expect(asFragment()).toMatchSnapshot()

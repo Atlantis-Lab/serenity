@@ -18,7 +18,7 @@ export class CategoryGroupQueries implements OnModuleInit {
     this.catalogService = this.client.getService<catalog.CatalogService>('CatalogService')
   }
 
-  @Query(returns => CategoryGroupsList)
+  @Query((returns) => CategoryGroupsList)
   categoryGroups() {
     return this.catalogService.getCategoryGroups({})
   }

@@ -335,7 +335,7 @@ export const SpecialistsDetail = ({
                 <Layout flexBasis={34} />
                 <Layout marginRight={-20}>
                   <Row flexWrap='wrap' justifyConten='space-between' marginLeft={-20}>
-                    {specialisation.additional.map(item => (
+                    {specialisation.additional.map((item) => (
                       <Layout
                         key={item.id}
                         flexBasis={['50%', '50%', '33.3%']}
@@ -470,7 +470,7 @@ export const SpecialistsDetail = ({
           <Layout ml={[0, -16]}>
             <Carousel>
               {portfolio.map(
-                item =>
+                (item) =>
                   item.images[0] && (
                     <Column key={item.images[0].id} mx={16}>
                       <Layout
@@ -503,7 +503,7 @@ export const SpecialistsDetail = ({
                         </Text>
                       </Layout>
                     </Column>
-                  ),
+                  )
               )}
             </Carousel>
           </Layout>

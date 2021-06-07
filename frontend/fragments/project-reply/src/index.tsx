@@ -14,7 +14,7 @@ const ProjectReplyFragment = ({ id, replies, profile, status = '', ownerName = {
     setFilteredReplies(dataReplies)
   }, [dataReplies])
 
-  let endpoint = null
+  let endpoint: string | null = null
 
   if (typeof window !== 'undefined') {
     endpoint = window.location.hostname.includes('atls.tech')
@@ -24,19 +24,22 @@ const ProjectReplyFragment = ({ id, replies, profile, status = '', ownerName = {
 
   const onRegistration = useCallback(() => {
     window.location.href = `https://accounts.${endpoint}/signup`
-  }, [])
+  }, [endpoint])
 
   const onLogin = useCallback(() => {
     window.location.href = `https://accounts.${endpoint}/signin`
-  }, [])
+  }, [endpoint])
 
-  const onOpenSpecialist = useCallback(specialistId => {
-    window.location.href = `https://${endpoint}/specialists/${specialistId}`
-  }, [])
+  const onOpenSpecialist = useCallback(
+    (specialistId) => {
+      window.location.href = `https://${endpoint}/specialists/${specialistId}`
+    },
+    [endpoint]
+  )
 
-  const onFilterReplies = filterName => {
+  const onFilterReplies = (filterName) => {
     if (filterName) {
-      setFilteredReplies(replies.filter(reply => reply.status === filterName))
+      setFilteredReplies(replies.filter((reply) => reply.status === filterName))
       setActiveFilter(filterName)
     } else {
       setFilteredReplies(dataReplies)

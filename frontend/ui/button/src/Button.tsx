@@ -7,7 +7,7 @@ import { ifProp, switchProp }                  from 'styled-tools'
 import { StyledButtonProps }                   from './types'
 import { divideChildren }                      from './utils'
 
-const base: any = ({ theme }) => ({
+const base: any = ({ theme }: any) => ({
   fontFamily: theme.fonts.primary,
   boxSizing: 'border-box',
   display: 'flex',
@@ -24,7 +24,7 @@ const base: any = ({ theme }) => ({
 
 const fill = ifProp('fill', { width: '100%' })
 
-const colors = switchProp('color', ({ theme }) => ({
+const colors = switchProp('color', ({ theme }: any) => ({
   chicago: {
     background: theme.colors.chicago,
     color: theme.colors.white,
@@ -48,7 +48,7 @@ const colors = switchProp('color', ({ theme }) => ({
   },
 }))
 
-const sizes = switchProp('size', ({ theme, equal }) => ({
+const sizes = switchProp('size', ({ theme, equal }: any) => ({
   small: {
     fontSize: theme.fontSizes.tiny,
     padding: equal ? 0 : '0px 16px',
@@ -87,12 +87,13 @@ const shouldForwardProp = createShouldForwardProp(['fill', 'size', 'color', 'equ
 const StyledButton = styled('button', { shouldForwardProp })<StyledButtonProps>(
   base,
   fill,
+  // @ts-ignore
   sizes,
   colors,
   border,
   typography,
   bg,
-  flexbox,
+  flexbox
 )
 
 const ContentPart = styled.span({

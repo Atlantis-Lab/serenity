@@ -92,7 +92,7 @@ export const ProjectsDetail = ({
         <Layout width='100%'>
           <Layout ml={[0, -16]} width='100%'>
             <Carousel>
-              {photos.map(item => (
+              {photos.map((item) => (
                 <Layout
                   key={item.id}
                   width={['calc(100vw - 40px)', 'auto']}

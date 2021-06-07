@@ -65,7 +65,7 @@ export namespace catalog {
      */
     getCategoryGroups(
       request: catalog.GetCategoryGroupsRequest,
-      metadata?: grpc.Metadata,
+      metadata?: grpc.Metadata
     ): Observable<catalog.GetCategoryGroupsResponse>
 
     /**
@@ -76,7 +76,7 @@ export namespace catalog {
      */
     getCategories(
       request: catalog.GetCategoriesRequest,
-      metadata?: grpc.Metadata,
+      metadata?: grpc.Metadata
     ): Observable<catalog.GetCategoriesResponse>
 
     /**
@@ -87,7 +87,7 @@ export namespace catalog {
      */
     createCategoryGroup(
       request: catalog.CreateCategoryGroupRequest,
-      metadata?: grpc.Metadata,
+      metadata?: grpc.Metadata
     ): Observable<catalog.CreateCategoryGroupResponse>
 
     /**
@@ -98,7 +98,7 @@ export namespace catalog {
      */
     updateCategoryGroup(
       request: catalog.UpdateCategoryGroupRequest,
-      metadata?: grpc.Metadata,
+      metadata?: grpc.Metadata
     ): Observable<catalog.UpdateCategoryGroupResponse>
 
     /**
@@ -109,7 +109,7 @@ export namespace catalog {
      */
     deleteCategoryGroup(
       request: catalog.DeleteCategoryGroupRequest,
-      metadata?: grpc.Metadata,
+      metadata?: grpc.Metadata
     ): Observable<catalog.DeleteCategoryGroupResponse>
 
     /**
@@ -120,7 +120,7 @@ export namespace catalog {
      */
     createCategory(
       request: catalog.CreateCategoryRequest,
-      metadata?: grpc.Metadata,
+      metadata?: grpc.Metadata
     ): Observable<catalog.CreateCategoryResponse>
 
     /**
@@ -131,7 +131,7 @@ export namespace catalog {
      */
     updateCategory(
       request: catalog.UpdateCategoryRequest,
-      metadata?: grpc.Metadata,
+      metadata?: grpc.Metadata
     ): Observable<catalog.UpdateCategoryResponse>
 
     /**
@@ -142,7 +142,7 @@ export namespace catalog {
      */
     deleteCategory(
       request: catalog.DeleteCategoryRequest,
-      metadata?: grpc.Metadata,
+      metadata?: grpc.Metadata
     ): Observable<catalog.DeleteCategoryResponse>
   }
 
@@ -395,7 +395,7 @@ export namespace mailer {
      */
     getSending(
       request: mailer.getSendingRequest,
-      metadata?: grpc.Metadata,
+      metadata?: grpc.Metadata
     ): Observable<mailer.Sending>
   }
 
@@ -448,7 +448,7 @@ export namespace identity {
      */
     register(
       request: identity.RegisterRequest,
-      metadata?: grpc.Metadata,
+      metadata?: grpc.Metadata
     ): Observable<identity.RegisterResponse>
 
     /**
@@ -459,7 +459,7 @@ export namespace identity {
      */
     authenticate(
       request: identity.AuthenticateRequest,
-      metadata?: grpc.Metadata,
+      metadata?: grpc.Metadata
     ): Observable<identity.AuthenticateResponse>
 
     /**
@@ -470,7 +470,7 @@ export namespace identity {
      */
     verifyEmail(
       request: identity.VerifyEmailRequest,
-      metadata?: grpc.Metadata,
+      metadata?: grpc.Metadata
     ): Observable<identity.VerifyEmailResponse>
 
     /**
@@ -481,7 +481,7 @@ export namespace identity {
      */
     resetPassword(
       request: identity.ResetPasswordRequest,
-      metadata?: grpc.Metadata,
+      metadata?: grpc.Metadata
     ): Observable<identity.ResetPasswordResponse>
 
     /**
@@ -492,7 +492,7 @@ export namespace identity {
      */
     changePassword(
       request: identity.ChangePasswordRequest,
-      metadata?: grpc.Metadata,
+      metadata?: grpc.Metadata
     ): Observable<identity.ChangePasswordResponse>
 
     /**
@@ -503,7 +503,7 @@ export namespace identity {
      */
     createProfile(
       request: identity.CreateProfileRequest,
-      metadata?: grpc.Metadata,
+      metadata?: grpc.Metadata
     ): Observable<identity.CreateProfileResponse>
 
     /**
@@ -514,7 +514,7 @@ export namespace identity {
      */
     getUsers(
       request: identity.GetUsersRequest,
-      metadata?: grpc.Metadata,
+      metadata?: grpc.Metadata
     ): Observable<identity.GetUsersResponse>
 
     /**
@@ -525,7 +525,7 @@ export namespace identity {
      */
     updateProfile(
       request: identity.UpdateProfileRequest,
-      metadata?: grpc.Metadata,
+      metadata?: grpc.Metadata
     ): Observable<identity.UpdateProfileResponse>
   }
 
@@ -889,7 +889,7 @@ export namespace files {
      */
     getFiles(
       request: files.GetFilesRequest,
-      metadata?: grpc.Metadata,
+      metadata?: grpc.Metadata
     ): Observable<files.GetFilesResponse>
 
     /**
@@ -900,7 +900,7 @@ export namespace files {
      */
     createUpload(
       request: files.CreateUploadRequest,
-      metadata?: grpc.Metadata,
+      metadata?: grpc.Metadata
     ): Observable<files.CreateUploadResponse>
 
     /**
@@ -911,7 +911,7 @@ export namespace files {
      */
     confirmUpload(
       request: files.ConfirmUploadRequest,
-      metadata?: grpc.Metadata,
+      metadata?: grpc.Metadata
     ): Observable<files.ConfirmUploadResponse>
   }
 
@@ -1000,6 +1000,170 @@ export namespace files {
   }
 }
 
+/** Namespace portfolio. */
+export namespace portfolio {
+  /** Contains all the RPC service clients. */
+  export interface ClientFactory {
+    /**
+     * Returns the PortfolioService service client.
+     */
+    getPortfolioService(): portfolio.PortfolioService
+  }
+
+  /** Builder for an RPC service server. */
+  export interface ServerBuilder {
+    /**
+     * Adds a PortfolioService service implementation.
+     * @param impl PortfolioService service implementation
+     */
+    addPortfolioService(impl: portfolio.PortfolioService): portfolio.ServerBuilder
+  }
+
+  /** Constructs a new PortfolioService service. */
+  export interface PortfolioService {
+    /**
+     * Calls getPortfolio.
+     * @param request GetPortfolioRequest message or plain object
+     * @param metadata Optional metadata
+     * @returns Promise
+     */
+    getPortfolio(
+      request: portfolio.GetPortfolioRequest,
+      metadata?: grpc.Metadata
+    ): Observable<portfolio.GetPortfolioResponse>
+
+    /**
+     * Calls createPortfolio.
+     * @param request CreatePortfolioRequest message or plain object
+     * @param metadata Optional metadata
+     * @returns Promise
+     */
+    createPortfolio(
+      request: portfolio.CreatePortfolioRequest,
+      metadata?: grpc.Metadata
+    ): Observable<portfolio.CreatePortfolioResponse>
+
+    /**
+     * Calls updatePortfolio.
+     * @param request UpdatePortfolioRequest message or plain object
+     * @param metadata Optional metadata
+     * @returns Promise
+     */
+    updatePortfolio(
+      request: portfolio.UpdatePortfolioRequest,
+      metadata?: grpc.Metadata
+    ): Observable<portfolio.UpdatePortfolioResponse>
+  }
+
+  /** Properties of a PortfolioFilter. */
+  export interface PortfolioFilter {
+    /** PortfolioFilter id */
+    id?: string[] | null
+
+    /** PortfolioFilter userId */
+    userId?: string[] | null
+  }
+
+  /** Properties of a Portfolio. */
+  export interface Portfolio {
+    /** Portfolio id */
+    id?: string | null
+
+    /** Portfolio name */
+    name?: string | null
+
+    /** Portfolio images */
+    images?: string[] | null
+
+    /** Portfolio userId */
+    userId?: string | null
+  }
+
+  /** Properties of a GetPortfolioRequest. */
+  export interface GetPortfolioRequest {
+    /** GetPortfolioRequest pager */
+    pager?: common.Pager | null
+
+    /** GetPortfolioRequest order */
+    order?: common.Order | null
+
+    /** GetPortfolioRequest filters */
+    filters?: portfolio.PortfolioFilter | null
+  }
+
+  /** Properties of a GetPortfolioResponse. */
+  export interface GetPortfolioResponse {
+    /** GetPortfolioResponse rows */
+    rows?: portfolio.Portfolio[] | null
+
+    /** GetPortfolioResponse pageInfo */
+    pageInfo?: common.PageInfo | null
+  }
+
+  /** Properties of a CreatePortfolioRequest. */
+  export interface CreatePortfolioRequest {
+    /** CreatePortfolioRequest userId */
+    userId?: string | null
+
+    /** CreatePortfolioRequest name */
+    name?: string | null
+
+    /** CreatePortfolioRequest images */
+    images?: string[] | null
+  }
+
+  /** Properties of a CreatePortfolioErrors. */
+  export interface CreatePortfolioErrors {
+    /** CreatePortfolioErrors name */
+    name?: string | null
+  }
+
+  /** Properties of a CreatePortfolioResponse. */
+  export interface CreatePortfolioResponse {
+    /** CreatePortfolioResponse errors */
+    errors?: portfolio.CreatePortfolioErrors | null
+
+    /** CreatePortfolioResponse result */
+    result?: portfolio.Portfolio | null
+  }
+
+  /** Properties of an UpdatePortfolioRequest. */
+  export interface UpdatePortfolioRequest {
+    /** UpdatePortfolioRequest id */
+    id?: string | null
+
+    /** UpdatePortfolioRequest userId */
+    userId?: string | null
+
+    /** UpdatePortfolioRequest name */
+    name?: string | null
+
+    /** UpdatePortfolioRequest images */
+    images?: string[] | null
+  }
+
+  /** Properties of an UpdatePortfolioErrors. */
+  export interface UpdatePortfolioErrors {
+    /** UpdatePortfolioErrors id */
+    id?: string | null
+
+    /** UpdatePortfolioErrors userId */
+    userId?: string | null
+
+    /** UpdatePortfolioErrors name */
+    name?: string | null
+  }
+
+  /** Properties of an UpdatePortfolioResponse. */
+  export interface UpdatePortfolioResponse {
+    /** UpdatePortfolioResponse errors */
+    errors?: portfolio.UpdatePortfolioErrors | null
+
+    /** UpdatePortfolioResponse result */
+    result?: portfolio.Portfolio | null
+  }
+}
+
 /** Namespace collaboration. */
 export namespace collaboration {
   /** Contains all the RPC service clients. */
@@ -1029,7 +1193,7 @@ export namespace collaboration {
      */
     getCustomers(
       request: collaboration.GetCustomersRequest,
-      metadata?: grpc.Metadata,
+      metadata?: grpc.Metadata
     ): Observable<collaboration.GetCustomersResponse>
 
     /**
@@ -1040,7 +1204,7 @@ export namespace collaboration {
      */
     getSpecialists(
       request: collaboration.GetSpecialistsRequest,
-      metadata?: grpc.Metadata,
+      metadata?: grpc.Metadata
     ): Observable<collaboration.GetSpecialistsResponse>
 
     /**
@@ -1051,7 +1215,7 @@ export namespace collaboration {
      */
     getDiscussions(
       request: collaboration.GetDiscussionsRequest,
-      metadata?: grpc.Metadata,
+      metadata?: grpc.Metadata
     ): Observable<collaboration.GetDiscussionsResponse>
 
     /**
@@ -1062,7 +1226,7 @@ export namespace collaboration {
      */
     getChatDiscussions(
       request: collaboration.GetDiscussionsRequest,
-      metadata?: grpc.Metadata,
+      metadata?: grpc.Metadata
     ): Observable<collaboration.GetDiscussionsResponse>
 
     /**
@@ -1073,7 +1237,7 @@ export namespace collaboration {
      */
     updateSpecialist(
       request: collaboration.UpdateSpecialistRequest,
-      metadata?: grpc.Metadata,
+      metadata?: grpc.Metadata
     ): Observable<collaboration.UpdateSpecialistResponse>
 
     /**
@@ -1084,7 +1248,7 @@ export namespace collaboration {
      */
     changeAccountType(
       request: collaboration.ChangeAccountTypeRequest,
-      metadata?: grpc.Metadata,
+      metadata?: grpc.Metadata
     ): Observable<collaboration.ChangeAccountTypeResponse>
 
     /**
@@ -1095,7 +1259,7 @@ export namespace collaboration {
      */
     createProject(
       request: collaboration.CreateProjectRequest,
-      metadata?: grpc.Metadata,
+      metadata?: grpc.Metadata
     ): Observable<collaboration.CreateProjectResponse>
 
     /**
@@ -1106,7 +1270,7 @@ export namespace collaboration {
      */
     updateProject(
       request: collaboration.UpdateProjectRequest,
-      metadata?: grpc.Metadata,
+      metadata?: grpc.Metadata
     ): Observable<collaboration.UpdateProjectResponse>
 
     /**
@@ -1117,7 +1281,7 @@ export namespace collaboration {
      */
     getProjects(
       request: collaboration.GetProjectsRequest,
-      metadata?: grpc.Metadata,
+      metadata?: grpc.Metadata
     ): Observable<collaboration.GetProjectsResponse>
 
     /**
@@ -1128,7 +1292,7 @@ export namespace collaboration {
      */
     addProjectReply(
       request: collaboration.AddProjectReplyRequest,
-      metadata?: grpc.Metadata,
+      metadata?: grpc.Metadata
     ): Observable<collaboration.AddProjectReplyResponse>
 
     /**
@@ -1139,7 +1303,7 @@ export namespace collaboration {
      */
     rejectProjectReply(
       request: collaboration.RejectProjectReplyRequest,
-      metadata?: grpc.Metadata,
+      metadata?: grpc.Metadata
     ): Observable<collaboration.RejectProjectReplyResponse>
 
     /**
@@ -1150,7 +1314,7 @@ export namespace collaboration {
      */
     confirmProjectReply(
       request: collaboration.ConfirmProjectReplyRequest,
-      metadata?: grpc.Metadata,
+      metadata?: grpc.Metadata
     ): Observable<collaboration.ConfirmProjectReplyResponse>
 
     /**
@@ -1161,7 +1325,7 @@ export namespace collaboration {
      */
     getReplies(
       request: collaboration.GetRepliesRequest,
-      metadata?: grpc.Metadata,
+      metadata?: grpc.Metadata
     ): Observable<collaboration.GetRepliesResponse>
 
     /**
@@ -1172,7 +1336,7 @@ export namespace collaboration {
      */
     addReplyMessage(
       request: collaboration.AddReplyMessageRequest,
-      metadata?: grpc.Metadata,
+      metadata?: grpc.Metadata
     ): Observable<collaboration.AddReplyMessageResponse>
 
     /**
@@ -1183,7 +1347,7 @@ export namespace collaboration {
      */
     changeReplyStatus(
       request: collaboration.ChangeReplyStatusRequest,
-      metadata?: grpc.Metadata,
+      metadata?: grpc.Metadata
     ): Observable<collaboration.ChangeReplyStatusResponse>
 
     /**
@@ -1194,7 +1358,7 @@ export namespace collaboration {
      */
     chooseSpecialist(
       request: collaboration.ChooseSpecialistRequest,
-      metadata?: grpc.Metadata,
+      metadata?: grpc.Metadata
     ): Observable<collaboration.ChooseSpecialistResponse>
 
     /**
@@ -1205,7 +1369,7 @@ export namespace collaboration {
      */
     completeProject(
       request: collaboration.CompleteProjectRequest,
-      metadata?: grpc.Metadata,
+      metadata?: grpc.Metadata
     ): Observable<collaboration.CompleteProjectResponse>
 
     /**
@@ -1216,7 +1380,7 @@ export namespace collaboration {
      */
     publishProject(
       request: collaboration.PublishProjectRequest,
-      metadata?: grpc.Metadata,
+      metadata?: grpc.Metadata
     ): Observable<collaboration.PublishProjectResponse>
 
     /**
@@ -1227,7 +1391,7 @@ export namespace collaboration {
      */
     getReviews(
       request: collaboration.GetReviewsRequest,
-      metadata?: grpc.Metadata,
+      metadata?: grpc.Metadata
     ): Observable<collaboration.GetReviewsResponse>
 
     /**
@@ -1238,7 +1402,7 @@ export namespace collaboration {
      */
     addDiscussionMessage(
       request: collaboration.AddDiscussionMessageRequest,
-      metadata?: grpc.Metadata,
+      metadata?: grpc.Metadata
     ): Observable<collaboration.AddDiscussionMessageResponse>
   }
 
@@ -2157,7 +2321,7 @@ export namespace hits {
      */
     getCounters(
       request: hits.GetCountersRequest,
-      metadata?: grpc.Metadata,
+      metadata?: grpc.Metadata
     ): Observable<hits.GetCountersResponse>
 
     /**
@@ -2168,7 +2332,7 @@ export namespace hits {
      */
     getActivities(
       request: hits.GetActivitiesRequest,
-      metadata?: grpc.Metadata,
+      metadata?: grpc.Metadata
     ): Observable<hits.GetActivitiesResponse>
 
     /**
@@ -2179,7 +2343,7 @@ export namespace hits {
      */
     trackActivity(
       request: hits.TrackActivityRequest,
-      metadata?: grpc.Metadata,
+      metadata?: grpc.Metadata
     ): Observable<hits.TrackActivityResponse>
   }
 
@@ -2274,5 +2438,128 @@ export namespace hits {
 
     /** TrackActivityResponse result */
     result?: hits.Activity | null
+  }
+}
+
+/** Namespace search. */
+export namespace search {
+  /** Contains all the RPC service clients. */
+  export interface ClientFactory {
+    /**
+     * Returns the SearchService service client.
+     */
+    getSearchService(): search.SearchService
+  }
+
+  /** Builder for an RPC service server. */
+  export interface ServerBuilder {
+    /**
+     * Adds a SearchService service implementation.
+     * @param impl SearchService service implementation
+     */
+    addSearchService(impl: search.SearchService): search.ServerBuilder
+  }
+
+  /** Constructs a new SearchService service. */
+  export interface SearchService {
+    /**
+     * Calls searchProjects.
+     * @param request SearchProjectsRequest message or plain object
+     * @param metadata Optional metadata
+     * @returns Promise
+     */
+    searchProjects(
+      request: search.SearchProjectsRequest,
+      metadata?: grpc.Metadata
+    ): Observable<search.SearchProjectsResponse>
+
+    /**
+     * Calls searchSpecialists.
+     * @param request SearchSpecialistsRequest message or plain object
+     * @param metadata Optional metadata
+     * @returns Promise
+     */
+    searchSpecialists(
+      request: search.SearchSpecialistsRequest,
+      metadata?: grpc.Metadata
+    ): Observable<search.SearchSpecialistsResponse>
+  }
+
+  /** Properties of a Search. */
+  export interface Search {
+    /** Search id */
+    id?: string | null
+
+    /** Search score */
+    score?: number | null
+  }
+
+  /** Properties of a ProjectsFilter. */
+  export interface ProjectsFilter {
+    /** ProjectsFilter id */
+    id?: string[] | null
+
+    /** ProjectsFilter categoryId */
+    categoryId?: string | null
+
+    /** ProjectsFilter status */
+    status?: string | null
+  }
+
+  /** Properties of a SearchProjectsRequest. */
+  export interface SearchProjectsRequest {
+    /** SearchProjectsRequest pager */
+    pager?: common.Pager | null
+
+    /** SearchProjectsRequest order */
+    order?: common.Order | null
+
+    /** SearchProjectsRequest filters */
+    filters?: search.ProjectsFilter | null
+
+    /** SearchProjectsRequest query */
+    query?: string | null
+  }
+
+  /** Properties of a SearchProjectsResponse. */
+  export interface SearchProjectsResponse {
+    /** SearchProjectsResponse rows */
+    rows?: search.Search[] | null
+
+    /** SearchProjectsResponse pageInfo */
+    pageInfo?: common.PageInfo | null
+  }
+
+  /** Properties of a SpecialistsFilter. */
+  export interface SpecialistsFilter {
+    /** SpecialistsFilter id */
+    id?: string[] | null
+
+    /** SpecialistsFilter specialisationId */
+    specialisationId?: string | null
+  }
+
+  /** Properties of a SearchSpecialistsRequest. */
+  export interface SearchSpecialistsRequest {
+    /** SearchSpecialistsRequest pager */
+    pager?: common.Pager | null
+
+    /** SearchSpecialistsRequest order */
+    order?: common.Order | null
+
+    /** SearchSpecialistsRequest filters */
+    filters?: search.SpecialistsFilter | null
+
+    /** SearchSpecialistsRequest query */
+    query?: string | null
+  }
+
+  /** Properties of a SearchSpecialistsResponse. */
+  export interface SearchSpecialistsResponse {
+    /** SearchSpecialistsResponse rows */
+    rows?: search.Search[] | null
+
+    /** SearchSpecialistsResponse pageInfo */
+    pageInfo?: common.PageInfo | null
   }
 }

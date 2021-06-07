@@ -1,0 +1,24 @@
+{
+  "name": "@portfolio/persistence",
+  "version": "0.0.0",
+  "license": "MIT",
+  "main": "src/index.ts",
+  "scripts": {
+    "typeorm": "ts-node `yarn bin typeorm`"
+  },
+  "devDependencies": {
+    "@types/node": "12.12.14"
+  },
+  "dependencies": {
+    "@monstrs/nestjs-bus": "0.1.4",
+    "@monstrs/nestjs-logger": "0.1.2",
+    "@nestjs/common": "6.10.5",
+    "@nestjs/typeorm": "6.2.0",
+    "@node-ts/ddd": "0.1.4",
+    "@portfolio/domain": "0.0.0",
+    "pg": "7.13.0",
+    "ts-node": "8.5.2",
+    "typeorm": "0.2.19",
+    "typescript": "3.7.2"
+  }
+}

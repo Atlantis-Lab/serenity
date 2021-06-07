@@ -11,10 +11,10 @@ const ProjectsPage = () => {
   const defaultCategory = (router && router.query && router.query.catId) || ''
   const [activeCategory, setActiveCategory] = useState(defaultCategory)
 
-  const selectCategory = id => {
+  const selectCategory = (id) => {
     if (typeof window !== 'undefined') {
       setActiveCategory(id)
-      window.history.replaceState({ catId: id }, null, `/projects?catId=${[id]}`)
+      window.history.replaceState({ catId: id }, '', `/projects?catId=${[id]}`)
     }
   }
 

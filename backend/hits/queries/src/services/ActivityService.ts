@@ -17,7 +17,7 @@ interface FindAllResponse<T> {
 export class ActivityService {
   constructor(
     @InjectRepository(Activity)
-    private readonly activityRepository: Repository<Activity>,
+    private readonly activityRepository: Repository<Activity>
   ) {}
 
   async findAll(filters: any): Promise<FindAllResponse<Activity>> {

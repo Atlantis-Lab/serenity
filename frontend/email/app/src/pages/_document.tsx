@@ -1,5 +1,5 @@
 import Document            from 'next/document'
-import { extractCritical } from 'emotion-server'
+import { extractCritical } from '@emotion/server'
 import { createElement }   from 'react'
 
 export default class EmailDocument extends Document {

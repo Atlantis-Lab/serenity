@@ -12,7 +12,7 @@ const expandIcon = ({ isActive }) => (
 )
 
 export const Collapse = ({ children, ...props }) => (
-  <RcCollapse className={collapseStyles} expandIcon={expandIcon} {...props}>
+  <RcCollapse className={`${collapseStyles}`} expandIcon={expandIcon} {...props}>
     {children}
   </RcCollapse>
 )

@@ -7,7 +7,9 @@
     "typeorm": "ts-node `yarn bin typeorm`"
   },
   "devDependencies": {
-    "@types/node": "12.12.14"
+    "@types/node": "12.12.14",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "^7.0.1"
   },
   "dependencies": {
     "@catalog/domain": "0.1.1",

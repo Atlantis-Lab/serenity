@@ -21,8 +21,7 @@
     "@ui/text": "0.3.1",
     "@ui/theme": "0.0.5"
   },
-  "peerDependencies": {
-    "@apollo/react-hooks": "^3.1.0",
+  "dependencies": {
     "graphql-tag": "^2.10.0",
     "next": "10.0.5",
     "react": "16.13.1",

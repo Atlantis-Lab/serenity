@@ -21,7 +21,7 @@ export class Message {
   read: boolean
 
   @Field({ nullable: true })
-  get sendDate(): Date {
+  get sendDate(): Date | undefined {
     return this.sendAt
   }
 

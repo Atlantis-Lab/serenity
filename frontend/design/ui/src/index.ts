@@ -1,6 +1,0 @@
-export * from './Sample'
-export * from './Layout'
-export * from './Container'
-export * from './List'
-export * from './Text'
-export * from './Space'

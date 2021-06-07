@@ -3,7 +3,7 @@ import { useContext, useEffect, useMemo, useState } from 'react'
 import { DrawerContext }                            from './DrawerContext'
 import { DrawerStore }                              from './DrawerStore'
 
-export const useDrawer = id => {
+export const useDrawer = (id) => {
   const store: DrawerStore = useContext(DrawerContext)
 
   if (!store) {
@@ -18,10 +18,10 @@ export const useDrawer = id => {
     return () => {
       store.removeListener(id, setVisible)
     }
-  }, [store])
+  }, [id, store])
 
-  const open = useMemo(() => store.open.bind(store, id), [store])
-  const close = useMemo(() => store.close.bind(store, id), [store])
+  const open = useMemo(() => store.open.bind(store, id), [id, store])
+  const close = useMemo(() => store.close.bind(store, id), [id, store])
 
   return { visible, open, close }
 }

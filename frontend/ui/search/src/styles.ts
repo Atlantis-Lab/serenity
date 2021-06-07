@@ -1,4 +1,4 @@
-import { css } from 'emotion'
+import { css } from '@emotion/react'
 
 export const selectStyles = css`
   font-family: 'Inter';

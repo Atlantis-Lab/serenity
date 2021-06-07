@@ -15,20 +15,20 @@ export class ProjectLoader implements NestDataLoader, OnModuleInit {
   private collaborationService: collaboration.CollaborationService
 
   onModuleInit() {
-    this.collaborationService = this.client.getService<collaboration.CollaborationService>(
-      'CollaborationService',
-    )
+    this.collaborationService =
+      this.client.getService<collaboration.CollaborationService>('CollaborationService')
   }
 
   @OrderResultByKey()
   getProjects(id: string[]) {
     return this.collaborationService
       .getProjects({ filters: { id } })
-      .pipe(map(data => data.rows))
+      .pipe(map((data) => data.rows))
       .toPromise()
   }
 
   generateDataLoader(): DataLoader<any, any> {
+    // @ts-ignore
     return new DataLoader<string, collaboration.Project>(this.getProjects.bind(this))
   }
 }

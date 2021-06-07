@@ -48,6 +48,7 @@ const Screen = styled.div({
   maxHeight: '100%',
 })
 
+// @ts-ignore
 const StyledGallery = styled.div<GalleryProps>(
   {
     position: 'relative',
@@ -55,7 +56,7 @@ const StyledGallery = styled.div<GalleryProps>(
     flexDirection: 'row',
     height: 'auto',
   },
-  transition,
+  transition
 )
 
 const Image = styled.img({
@@ -100,12 +101,12 @@ const Name = styled.span(({ theme }: any) => ({
 
 export const BaseGallery = ({ images, name = '', onClose }) => {
   const [enableTransition, setEnableTransition] = useState(true)
-  const [innerWidth, setInnerWidth] = useState(null)
-  const [fullWidth, setFullWidth] = useState(null)
+  const [innerWidth, setInnerWidth] = useState(0)
+  const [fullWidth, setFullWidth] = useState(0)
   const [buttonLeftDisabled, setButtonLeftDisabled] = useState(true)
   const [buttonRightDisabled, setButtonRightDisabled] = useState(images.length <= 1)
   const [left, setLeft] = useState(0)
-  const containerNode = useRef()
+  const containerNode = useRef(null)
   const screenNode = useRef(null)
   const { innerWidth: widthWindow } = useWindowSize()
 
@@ -123,7 +124,7 @@ export const BaseGallery = ({ images, name = '', onClose }) => {
     return () => window.removeEventListener('resize', setWidth)
   }, [])
 
-  const swiping = data => {
+  const swiping = (data) => {
     if (innerWidth >= fullWidth) {
       return
     }
@@ -148,7 +149,7 @@ export const BaseGallery = ({ images, name = '', onClose }) => {
     setEnableTransition(false)
   }
 
-  const handleClick = direction => {
+  const handleClick = (direction) => {
     setEnableTransition(true)
     let newLeft = 0
     if (direction === 'left') {
@@ -184,7 +185,7 @@ export const BaseGallery = ({ images, name = '', onClose }) => {
   }
 
   const handlers = useSwipeable({
-    onSwiping: data => (widthWindow >= 640 ? {} : swiping(data)),
+    onSwiping: (data) => ((widthWindow as any) >= 640 ? {} : swiping(data)),
     preventDefaultTouchmoveEvent: true,
     trackMouse: true,
     trackTouch: true,
@@ -208,7 +209,7 @@ export const BaseGallery = ({ images, name = '', onClose }) => {
             style={{ left }}
             transition={enableTransition}
           >
-            {images.map(image => (
+            {images.map((image) => (
               <ImageContainer key={image.id}>
                 <Image src={image.url} />
               </ImageContainer>

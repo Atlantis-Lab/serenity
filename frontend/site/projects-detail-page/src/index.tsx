@@ -1,5 +1,5 @@
 import React                                    from 'react'
-import { useUser }                              from '@atlantis-lab/react-user'
+import { useUser }                              from '@atls/react-user'
 import { useRouter }                            from 'next/router'
 
 import { ProjectsDetailPage as ProjectsDetail } from './ProjectsDetailPage'
@@ -12,6 +12,7 @@ const ProjectsDetailPage = () => {
   const user = useUser()
   const id = (router && router.query && router.query.id) || null
   const project = useDataProjects(id)
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const replies = user ? useDataReplies(id) : {}
 
   return (

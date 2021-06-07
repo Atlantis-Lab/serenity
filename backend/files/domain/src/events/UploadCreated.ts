@@ -16,7 +16,7 @@ export class UploadCreated extends Event {
     readonly type: string,
     readonly name: string,
     readonly url: string,
-    readonly fields: UploadField[],
+    readonly fields: UploadField[]
   ) {
     super()
   }

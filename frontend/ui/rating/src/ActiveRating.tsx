@@ -48,12 +48,12 @@ const StarContainer = styled.div<StarContainerProps>(
       width: 24,
       height: 24,
     },
-  }),
+  })
 )
 
 export const ActiveRating = ({
   rating = 0,
-  onChange = el => el,
+  onChange = (el) => el,
   size = 'normal',
   color = '#999999',
 }) => (

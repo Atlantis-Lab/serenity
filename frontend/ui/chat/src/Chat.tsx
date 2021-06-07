@@ -49,7 +49,7 @@ const Icons = styled.div<ActiveProps>(
     opacity: 0,
     width: 16,
   },
-  activeIcon,
+  activeIcon
 )
 
 const unread = ifProp('unread', ({ theme }: any) => ({
@@ -72,7 +72,7 @@ const ChatItem = styled.div<ItemProps>(
       boxShadow: 'none',
     },
   }),
-  unread,
+  unread
 )
 
 export const Chat = ({
@@ -118,10 +118,10 @@ export const Chat = ({
         position='absolute'
         overflow='auto'
       >
-        {discussions.map(item => (
+        {discussions.map((item) => (
           <ChatItem
             key={item.id}
-            unread={item.messages[0] && item.messages.some(message => !message.read)}
+            unread={item.messages[0] && item.messages.some((message) => !message.read)}
             onClick={() => {
               onOpenChat({
                 id: item.recipient.id,
@@ -167,7 +167,7 @@ export const Chat = ({
                                   day: 'numeric',
                                   month: 'numeric',
                                   year: 'numeric',
-                                },
+                                }
                               )}
                           </Text>
                         </Layout>
@@ -192,14 +192,14 @@ export const Chat = ({
           </ChatItem>
         ))}
       </Box>
-      {discussions.map(item => (
+      {discussions.map((item) => (
         <InnerChat
           item={item}
           inputValue={messages[item.recipient.id]}
           activeChat={activeChat}
           placeholder={inputPlaceholder}
           onSend={() => onSend(item.recipient.id)}
-          onChange={value => onChange(value, item.recipient.id)}
+          onChange={(value) => onChange(value, item.recipient.id)}
           key={item.recipient.id}
           disable={disable}
           owner={owner}

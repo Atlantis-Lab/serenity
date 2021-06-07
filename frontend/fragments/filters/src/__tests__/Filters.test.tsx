@@ -39,7 +39,7 @@ describe('Filters fragment', () => {
           <ThemeProvider>
             <Filters />
           </ThemeProvider>
-        </MockedProvider>,
+        </MockedProvider>
       )
 
       expect(asFragment()).toMatchSnapshot()

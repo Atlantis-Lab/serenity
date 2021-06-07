@@ -9,8 +9,8 @@ const mask = createNumberMask({
   thousandsSeparatorSymbol: ' ',
 })
 
-export const PriceInput = ({ onChange = a => {}, ...props }) => {
-  const onChangeFormatted = value => {
+export const PriceInput = ({ onChange = (a) => {}, ...props }) => {
+  const onChangeFormatted = (value) => {
     onChange(typeof value === 'string' ? Number(value.replace(/\s|₽/g, '')) : value)
   }
 

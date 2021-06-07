@@ -14,7 +14,7 @@ export class DiscussionService {
   constructor(
     private readonly messageRepository: MessageEntityRepository,
     private readonly discussionRepository: DiscussionEntityRepository,
-    private readonly chatRepository: ChatEntityRepository,
+    private readonly chatRepository: ChatEntityRepository
   ) {}
 
   async addMessage(command: AddDiscussionMessageCommand): Promise<any> {

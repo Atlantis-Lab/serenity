@@ -19,10 +19,10 @@ export class IdentityQueries implements OnModuleInit {
     this.identityService = this.client.getService<identity.IdentityService>('IdentityService')
   }
 
-  @Query(returns => User)
+  @Query((returns) => User)
   me(@Context('user') user: string) {
     return this.identityService
       .getUsers({ filters: { id: [user] } })
-      .pipe(map(data => data.rows[0]))
+      .pipe(map((data) => (data as any).rows[0]))
   }
 }

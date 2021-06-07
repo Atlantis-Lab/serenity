@@ -1,6 +1,6 @@
 import gql          from 'graphql-tag'
 
-import { useQuery } from '@apollo/react-hooks'
+import { useQuery } from '@apollo/client'
 
 export const queryProjects = gql`
   query Projects($filters: ProjectsFilter) {
@@ -101,7 +101,7 @@ export const queryReplies = gql`
   }
 `
 
-export const useDataProjects = id => {
+export const useDataProjects = (id) => {
   const { data } = useQuery(queryProjects, {
     variables: {
       filters: {
@@ -113,7 +113,7 @@ export const useDataProjects = id => {
   return (data && data.projects && data.projects.rows[0]) || {}
 }
 
-export const useDataReplies = id => {
+export const useDataReplies = (id) => {
   const { data } = useQuery(queryReplies, {
     variables: {
       projectId: id,

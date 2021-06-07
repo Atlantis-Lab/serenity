@@ -41,7 +41,7 @@ export const Item = withRouter(({ router, href, children, icon, onClick, ...prop
     active={router && router.pathname === href}
     onClick={
       onClick ||
-      (event => {
+      ((event) => {
         event.preventDefault()
 
         if (router) {

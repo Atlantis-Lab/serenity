@@ -10,13 +10,19 @@ const MainFragment = () => {
   const data = useData()
   const router = useRouter()
 
-  const onSelectOption = useCallback(value => {
-    router.push(value ? `/specialists?catId=${value}` : '/specialists')
-  }, [])
+  const onSelectOption = useCallback(
+    (value) => {
+      router.push(value ? `/specialists?catId=${value}` : '/specialists')
+    },
+    [router]
+  )
 
-  const onSelectValue = useCallback(value => {
-    router.push(value ? `/specialists?q=${value}` : '/specialists')
-  }, [])
+  const onSelectValue = useCallback(
+    (value) => {
+      router.push(value ? `/specialists?q=${value}` : '/specialists')
+    },
+    [router]
+  )
 
   return (
     <Main intl={intl} data={data} onSelectOption={onSelectOption} onSelectValue={onSelectValue} />

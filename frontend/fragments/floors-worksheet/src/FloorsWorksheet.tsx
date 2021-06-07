@@ -33,7 +33,7 @@ export const FloorsWorksheet = ({
           type='number'
           min={0}
           value={floorArea}
-          onChange={value => onChangeFloorArea(value)}
+          onChange={(value) => onChangeFloorArea(value)}
           placeholder={intl.formatMessage(messages.enterArea)}
           addonAfter={intl.formatMessage(messages.squareMeter)}
         />

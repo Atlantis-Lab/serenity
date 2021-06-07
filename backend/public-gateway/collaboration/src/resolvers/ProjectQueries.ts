@@ -18,18 +18,17 @@ export class ProjectQueries implements OnModuleInit {
   private collaborationService: collaboration.CollaborationService
 
   onModuleInit() {
-    this.collaborationService = this.client.getService<collaboration.CollaborationService>(
-      'CollaborationService',
-    )
+    this.collaborationService =
+      this.client.getService<collaboration.CollaborationService>('CollaborationService')
   }
 
-  @Query(returns => ProjectsList)
+  @Query((returns) => ProjectsList)
   projects(
     @Args({ name: 'offset', nullable: true, type: () => Int as any }, new OffsetToPagerPipe())
     pager: Pager,
 
     @Args({ name: 'filters', nullable: true, type: () => ProjectsFilter })
-    filters: ProjectsFilter,
+    filters: ProjectsFilter
   ) {
     return this.collaborationService.getProjects({ pager, filters })
   }

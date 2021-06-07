@@ -75,7 +75,7 @@ export const HomeBuildingWorksheet = ({
           onChange={(value, option) => onChangeHouseType(value, option.props.label)}
           placeholder={intl.formatMessage(messages.houseTypePlaceholder)}
         >
-          {houseTypes.map(item => (
+          {houseTypes.map((item) => (
             <Option key={item.id} value={item.id} label={item.name}>
               {item.name}
             </Option>
@@ -101,7 +101,7 @@ export const HomeBuildingWorksheet = ({
           onChange={(value, option) => onChangeFoundationType(value, option.props.label)}
           placeholder={intl.formatMessage(messages.foundationTypePlaceholder)}
         >
-          {foundationTypes.map(item => (
+          {foundationTypes.map((item) => (
             <Option key={item.id} value={item.id} label={item.name}>
               {item.name}
             </Option>
@@ -127,7 +127,7 @@ export const HomeBuildingWorksheet = ({
           onChange={(value, option) => onChangeRoofingType(value, option.props.label)}
           placeholder={intl.formatMessage(messages.roofingTypePlaceholder)}
         >
-          {roofingTypes.map(item => (
+          {roofingTypes.map((item) => (
             <Option key={item.id} value={item.id} label={item.name}>
               {item.name}
             </Option>

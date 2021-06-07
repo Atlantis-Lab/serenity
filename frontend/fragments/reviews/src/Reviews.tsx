@@ -7,7 +7,7 @@ import { Text }                     from '@ui/text'
 
 export const Reviews = ({ reviews = [] }) => (
   <Column>
-    {reviews.map(review => (
+    {reviews.map((review: any) => (
       <Box
         key={review.id}
         my='7px'

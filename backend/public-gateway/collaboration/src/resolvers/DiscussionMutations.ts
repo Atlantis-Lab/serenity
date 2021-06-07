@@ -22,30 +22,29 @@ export class DiscussionMutations implements OnModuleInit {
   private identityService: identity.IdentityService
 
   onModuleInit() {
-    this.collaborationService = this.client.getService<collaboration.CollaborationService>(
-      'CollaborationService',
-    )
+    this.collaborationService =
+      this.client.getService<collaboration.CollaborationService>('CollaborationService')
 
-    this.identityService = this.identityClient.getService<identity.IdentityService>(
-      'IdentityService',
-    )
+    this.identityService =
+      this.identityClient.getService<identity.IdentityService>('IdentityService')
   }
 
-  @Mutation(returns => AddDiscussionMessageResponse)
+  @Mutation((returns) => AddDiscussionMessageResponse)
   async addDiscussionMessage(
     @Args('input')
     input: AddDiscussionMessageInput,
-    @Context('user') authorId: string,
+    @Context('user') authorId: string
   ) {
     const { rows } = await this.identityService
       .getUsers({ filters: { id: [authorId] } })
       .toPromise()
 
+    // @ts-ignore
     const [sender] = rows
 
     const params: any = { ...input, authorId }
 
-    if (sender.profile.type === 'specialist') {
+    if ((sender as any).profile.type === 'specialist') {
       params.specialistId = authorId
       params.customerId = input.recipientId
     } else {

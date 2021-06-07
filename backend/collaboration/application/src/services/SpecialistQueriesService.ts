@@ -17,7 +17,7 @@ interface FindAllResponse<T> {
 export class SpecialistQueriesService {
   constructor(
     @InjectRepository(Specialist)
-    private readonly specialistRepository: Repository<Specialist>,
+    private readonly specialistRepository: Repository<Specialist>
   ) {}
 
   async findAll(pager?: any, filters?: any): Promise<FindAllResponse<Specialist>> {

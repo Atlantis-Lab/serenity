@@ -1,40 +1,14 @@
-import * as Hydra         from '@oryd/hydra-client'
-import querystring        from 'querystring'
-import { format, parse }  from 'url'
+/* eslint-disable @typescript-eslint/no-unused-expressions */
 
-import { getRedirectUrl } from '../utils'
+import { getKratosSession } from '@atls/kratos-session'
 
-export const redirect = async (req, res) => {
-  const { hydra }: { hydra: Hydra.AdminApi } = req
-  if (req.user) {
-    res.redirect(getRedirectUrl(req))
-  } else if (req.query.login_challenge) {
-    let target = '/signin'
-
-    const {
-      body: { requestUrl },
-    } = await hydra.getLoginRequest(req.query.login_challenge)
-
-    if (requestUrl) {
-      const { query } = parse(requestUrl)
-      const { state } = querystring.parse(query)
-
-      if (state) {
-        const values = JSON.parse(Buffer.from(state as any, 'base64').toString())
-
-        if (values.target) {
-          target = values.target // eslint-disable-line prefer-destructuring
-        }
-      }
-    }
-
-    res.redirect(
-      format({
-        pathname: target,
-        query: req.query,
-      }),
-    )
-  } else {
-    res.redirect('/signin')
-  }
+export const redirect = async (req, res, next) => {
+  getKratosSession()
+    .then((session) => {
+      if (!session) Promise.reject(session)
+      next()
+    })
+    .catch((err) => {
+      err.status === 404 ? res.json(err) : res.redirect('/login')
+    })
 }

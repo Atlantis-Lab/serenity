@@ -14,16 +14,16 @@ export class Profile extends ProfileEntity {
   })
   type: ProfileType
 
-  @Column(type => Photo)
+  @Column((type) => Photo)
   photo: Photo
 
-  @Column(type => PersonalInformation)
+  @Column((type) => PersonalInformation)
   personalInformation: PersonalInformation
 
-  @Column(type => ContactInformation)
+  @Column((type) => ContactInformation)
   contactInformation: ContactInformation
 
-  @Column(type => Address)
+  @Column((type) => Address)
   address: Address
 
   @Column({ nullable: true })

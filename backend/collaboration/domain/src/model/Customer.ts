@@ -21,7 +21,7 @@ export class Customer extends AggregateRoot {
     budget: number,
     legalEntitiesOnly: boolean,
     worksheet: string,
-    description?: string,
+    description?: string
   ) {
     return Project.create(
       projectId,
@@ -34,7 +34,7 @@ export class Customer extends AggregateRoot {
       budget,
       legalEntitiesOnly,
       worksheet,
-      description,
+      description
     )
   }
 

@@ -14,7 +14,7 @@ export class ProjectEntityRepository extends WriteRepository<ProjectEntity, Proj
   constructor(
     private readonly connection: Connection,
     private readonly logger: Logger,
-    private readonly bus: Bus,
+    private readonly bus: Bus
   ) {
     // @ts-ignore
     super(ProjectEntity, Project, connection, bus, logger)

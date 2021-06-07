@@ -7,9 +7,13 @@
     "@nestjs/common": "6.10.5",
     "@nestjs/graphql": "6.5.3",
     "@nestjs/microservices": "6.10.5",
+    "@protos/collaboration": "0.0.1",
     "@protos/files": "0.0.2",
     "@protos/identity": "0.3.1",
     "@protos/interfaces": "0.1.1",
+    "@protos/portfolio": "0.0.0",
+    "@public-gateway/collaboration": "0.0.1",
+    "@public-gateway/portfolio": "0.0.0",
     "rxjs": "6.5.3",
     "type-graphql": "0.17.5"
   },

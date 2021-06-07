@@ -23,7 +23,7 @@ describe('Project reply', () => {
               <TestComponent />
             </ThemeProvider>
           </IntlProvider>
-        </MockedProvider>,
+        </MockedProvider>
       )
 
       expect(asFragment()).toMatchSnapshot()

@@ -22,11 +22,12 @@ export class CounterLoader implements NestDataLoader, OnModuleInit {
   getCounters(ids: string[]) {
     return this.hitsService
       .getCounters({ filters: { id: ids } })
-      .pipe(map(data => data.rows))
+      .pipe(map((data) => data.rows))
       .toPromise()
   }
 
   generateDataLoader(): DataLoader<any, any> {
+    // @ts-ignore
     return new DataLoader<string, hits.Counter[]>(this.getCounters.bind(this))
   }
 }

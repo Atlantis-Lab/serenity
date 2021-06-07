@@ -27,26 +27,26 @@ export class CategoryGroupMutations implements OnModuleInit {
     this.catalogService = this.client.getService<catalog.CatalogService>('CatalogService')
   }
 
-  @Mutation(returns => CreateCategoryGroupResponse)
+  @Mutation((returns) => CreateCategoryGroupResponse)
   createCategoryGroup(
     @Args('input', new ValidationPipe({ transform: true }))
-    input: CreateCategoryGroupInput,
+    input: CreateCategoryGroupInput
   ) {
     return this.catalogService.createCategoryGroup(input)
   }
 
-  @Mutation(returns => UpdateCategoryGroupResponse)
+  @Mutation((returns) => UpdateCategoryGroupResponse)
   updateCategoryGroup(
     @Args('input', new ValidationPipe({ transform: true }))
-    input: UpdateCategoryGroupInput,
+    input: UpdateCategoryGroupInput
   ) {
     return this.catalogService.updateCategoryGroup(input)
   }
 
-  @Mutation(returns => DeleteCategoryGroupResponse)
+  @Mutation((returns) => DeleteCategoryGroupResponse)
   deleteCategoryGroup(
     @Args('input', new ValidationPipe({ transform: true }))
-    input: DeleteCategoryGroupInput,
+    input: DeleteCategoryGroupInput
   ) {
     return this.catalogService.deleteCategoryGroup(input)
   }

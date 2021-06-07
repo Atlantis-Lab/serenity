@@ -36,7 +36,7 @@ export class Upload extends AggregateRoot implements UploadProperties {
     type: string,
     name: string,
     url: string,
-    fields: UploadField[],
+    fields: UploadField[]
   ): Upload {
     const upload = new Upload(id)
 

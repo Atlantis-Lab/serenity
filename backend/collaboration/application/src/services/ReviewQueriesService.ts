@@ -17,7 +17,7 @@ interface FindAllResponse<T> {
 export class ReviewQueriesService {
   constructor(
     @InjectRepository(Review)
-    private readonly reviewRepository: Repository<Review>,
+    private readonly reviewRepository: Repository<Review>
   ) {}
 
   async findAll(pager?: any, filters?: any): Promise<FindAllResponse<Review>> {

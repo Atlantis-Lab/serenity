@@ -14,7 +14,7 @@ export class ResetPasswordHandler implements Handler<ResetPasswordRequested> {
     @InjectRepository(Sending)
     private readonly sendingRepository: Repository<Sending>,
     private transport: Transport,
-    private renderer: Renderer,
+    private renderer: Renderer
   ) {}
 
   async handle({ email, resetToken }: ResetPasswordRequested): Promise<void> {
@@ -23,7 +23,7 @@ export class ResetPasswordHandler implements Handler<ResetPasswordRequested> {
         template: 'reset-password',
         email: email.address,
         payload: { email, resetToken } as any,
-      }),
+      })
     )
 
     const { subject, html, text } = await this.renderer.render('reset-password', {

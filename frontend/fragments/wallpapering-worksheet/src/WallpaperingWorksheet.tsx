@@ -33,7 +33,7 @@ export const WallpaperingWorksheet = ({
           type='number'
           min={0}
           value={surfaceArea}
-          onChange={value => onChangeSurfaceArea(value)}
+          onChange={(value) => onChangeSurfaceArea(value)}
           placeholder={intl.formatMessage(messages.enterArea)}
           addonAfter={intl.formatMessage(messages.squareMeter)}
         />

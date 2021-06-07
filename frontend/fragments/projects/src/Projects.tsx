@@ -25,7 +25,7 @@ export const Projects = ({ intl, projects = [], searchData = [], onSearch }: any
         showArrow={false}
         onSearch={onSearch}
       >
-        {searchData.map(item => (
+        {searchData.map((item) => (
           <Option key={item.id} value={item.name}>
             {item.name}
           </Option>
@@ -35,7 +35,7 @@ export const Projects = ({ intl, projects = [], searchData = [], onSearch }: any
     <Layout flexBasis={7} />
     <Layout>
       <Column>
-        {projects.map(project => (
+        {projects.map((project) => (
           <Box
             key={project.id}
             my='7px'

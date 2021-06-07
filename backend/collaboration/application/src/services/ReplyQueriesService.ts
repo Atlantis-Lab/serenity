@@ -17,7 +17,7 @@ interface FindAllResponse<T> {
 export class ReplyQueriesService {
   constructor(
     @InjectRepository(Reply)
-    private readonly replyRepository: Repository<Reply>,
+    private readonly replyRepository: Repository<Reply>
   ) {}
 
   async findAll(pager?: any, filters?: any): Promise<FindAllResponse<Reply>> {

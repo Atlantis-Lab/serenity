@@ -20,7 +20,7 @@ describe('Floors worksheet', () => {
           <ThemeProvider>
             <TestComponent />
           </ThemeProvider>
-        </IntlProvider>,
+        </IntlProvider>
       )
 
       expect(asFragment()).toMatchSnapshot()

@@ -18,13 +18,13 @@ export class Specialist {
 
   _interaction: Interaction
 
-  @Column(type => Specialisation)
+  @Column((type) => Specialisation)
   specialisation: Specialisation
 
-  @Column(type => Account)
+  @Column((type) => Account)
   account: Account
 
-  @Column(type => Interaction)
+  @Column((type) => Interaction)
   get interaction() {
     return this._interaction
   }

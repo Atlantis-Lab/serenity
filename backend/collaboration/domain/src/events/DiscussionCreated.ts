@@ -10,7 +10,7 @@ export class DiscussionCreated extends Event {
   constructor(
     readonly discussionId: string,
     readonly specialistId: string,
-    readonly customerId: string,
+    readonly customerId: string
   ) {
     super()
   }

@@ -14,5 +14,5 @@ export const Divider = styled.div<DividerProps>(
   ifProp('vertical', {
     width: '1px',
     height: 'auto',
-  }),
+  })
 )

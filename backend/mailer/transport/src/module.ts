@@ -27,7 +27,7 @@ const transport = {
   useFactory: () =>
     new Transport(
       process.env.SENDER || 'no-reply@example.com',
-      process.env.NODE_ENV === 'production' ? getSesOptions() : getMailhogOptions(),
+      process.env.NODE_ENV === 'production' ? getSesOptions() : getMailhogOptions()
     ),
 }
 

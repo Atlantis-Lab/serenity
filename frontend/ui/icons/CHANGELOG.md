@@ -7,21 +7,11 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @ui/icons
 
-
-
-
-
 # 0.1.0 (2020-09-28)
-
 
 ### Features
 
-* **email:** init ([726e9c4](https://github.com/Atlantis-Lab/serenity/commit/726e9c49a5c82ee1497bf070d42b11aed35708e9))
-
-
-
-
-
+- **email:** init ([726e9c4](https://github.com/Atlantis-Lab/serenity/commit/726e9c49a5c82ee1497bf070d42b11aed35708e9))
 
 ## 0.0.3 (2020-06-30)
 

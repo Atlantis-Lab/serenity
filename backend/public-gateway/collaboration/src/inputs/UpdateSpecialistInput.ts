@@ -14,9 +14,9 @@ export class UpdateSpecialistInput {
   @Field({ nullable: true })
   description: string
 
-  @Field(type => [ID])
+  @Field((type) => [ID])
   mainSpecialisation: string[]
 
-  @Field(type => [ID])
+  @Field((type) => [ID])
   additionalSpecialisation: string[]
 }

@@ -1,0 +1,3 @@
+{
+  "extends": "@monstrs/tsconfig/tsconfig.service.json"
+}

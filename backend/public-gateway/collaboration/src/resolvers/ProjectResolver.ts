@@ -12,13 +12,13 @@ import { CategoryLoader, CounterLoader, FilesLoader, ReplyLoader } from '../data
 import { Project }                                                 from '../types'
 
 @Injectable()
-@Resolver(of => Project)
+@Resolver((of) => Project)
 export class ProjectResolver {
   @ResolveProperty()
   category(
     @Root() { categoryId }: collaboration.Project,
     @Loader(CategoryLoader.name)
-    categoryLoader: DataLoader<any, Category>,
+    categoryLoader: DataLoader<any, Category>
   ) {
     if (!categoryId) {
       return null
@@ -36,7 +36,7 @@ export class ProjectResolver {
   photos(
     @Root() { photos }: collaboration.Project,
     @Loader(FilesLoader.name)
-    filesLoader: DataLoader<any, File>,
+    filesLoader: DataLoader<any, File>
   ) {
     if (!(photos && photos.length > 0)) {
       return []
@@ -49,7 +49,7 @@ export class ProjectResolver {
   replies(
     @Root() { id }: collaboration.Reply,
     @Loader(ReplyLoader.name)
-    replyLoader: DataLoader<any, File>,
+    replyLoader: DataLoader<any, File>
   ) {
     return replyLoader.load(id)
   }
@@ -58,7 +58,7 @@ export class ProjectResolver {
   async views(
     @Root() { id }: any,
     @Loader(CounterLoader.name)
-    counterLoader: DataLoader<any, any>,
+    counterLoader: DataLoader<any, any>
   ) {
     const counter = await counterLoader.load(id)
 

@@ -22,7 +22,7 @@ export class Category {
   @Column()
   name: string
 
-  @ManyToOne(type => CategoryGroup)
+  @ManyToOne((type) => CategoryGroup)
   @JoinColumn()
   group: CategoryGroup | string
 

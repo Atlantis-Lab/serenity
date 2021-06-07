@@ -22,6 +22,8 @@
     "@public-gateway/collaboration": "0.0.1",
     "@public-gateway/files": "0.0.2",
     "@public-gateway/identity": "0.1.1",
+    "@public-gateway/portfolio": "0.0.0",
+    "@public-gateway/search": "0.0.0",
     "apollo-server-express": "2.9.12",
     "dataloader": "2.0.0",
     "graphql": "14.5.8",

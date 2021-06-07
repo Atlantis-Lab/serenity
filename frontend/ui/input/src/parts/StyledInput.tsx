@@ -12,13 +12,13 @@ const clear: styleFn = () => ({
   width: '100%',
 })
 
-const base: styleFn = ({ theme }) => ({
+const base: styleFn = ({ theme }: any) => ({
   '&::placeholder': {
     color: theme.colors.silver,
   },
 })
 
-const size: styleFn = switchProp('size', ({ theme }) => ({
+const size: styleFn = switchProp('size', ({ theme }: any) => ({
   normal: {
     fontSize: theme.fontSizes.tiny,
     height: 50,
@@ -53,7 +53,7 @@ const attach: styleFn = switchProp('attach', () => ({
   },
 }))
 
-const invalid: styleFn = ifProp('invalid', ({ theme }) => ({
+const invalid: styleFn = ifProp('invalid', ({ theme }: any) => ({
   borderColor: theme.colors.red,
 }))
 
@@ -74,7 +74,7 @@ const StyledInput = styled('input', { shouldForwardProp })(
   size,
   offset,
   attach,
-  invalid,
+  invalid
 )
 
 StyledInput.defaultProps = {

@@ -20,7 +20,7 @@ export class SpecialistService {
     specialist.update(
       interaction,
       new Specialisation(command.mainSpecialisation, command.additionalSpecialisation),
-      command.description,
+      command.description
     )
 
     await this.specialistRepository.save(specialist)

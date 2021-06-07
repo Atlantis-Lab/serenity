@@ -59,6 +59,7 @@ export class User extends AggregateRoot implements UserProperties {
   requestResetPassword() {
     this.credentials.generateResetToken()
 
+    // @ts-ignore
     this.when(new ResetPasswordRequested(this.id, this.email, this.credentials.resetToken))
   }
 

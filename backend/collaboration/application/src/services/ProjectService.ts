@@ -26,7 +26,7 @@ export class ProjectService {
     private readonly customerRepository: CustomerEntityRepository,
     private readonly messageRepository: MessageEntityRepository,
     private readonly discussionRepository: DiscussionEntityRepository,
-    private readonly replyRepository: ReplyEntityRepository,
+    private readonly replyRepository: ReplyEntityRepository
   ) {}
 
   async update(command: UpdateProjectCommand): Promise<any> {
@@ -40,7 +40,7 @@ export class ProjectService {
       command.budget,
       command.legalEntitiesOnly,
       command.worksheet,
-      command.description,
+      command.description
     )
 
     await this.projectRepository.save(project)

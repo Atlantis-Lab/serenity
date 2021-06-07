@@ -10,8 +10,8 @@ export const Main = ({
   intl,
   data = [],
   onChangeSearch = () => {},
-  onSelectOption = v => {},
-  onSelectValue = v => {},
+  onSelectOption = (v) => {},
+  onSelectValue = (v) => {},
 }) => (
   <Box justifyContent='center' bg='stardust' height='calc(100vh - 56px)'>
     <Layout maxWidth={1200} px={[20, 20, 40]} boxSizing='border-box' width='100%'>
@@ -37,7 +37,7 @@ export const Main = ({
             optionFilterProp='label'
             autoFocus
           >
-            {data.map(item => (
+            {data.map((item: any) => (
               <Option key={item.id} value={item.id} label={item.name}>
                 {item.name}
               </Option>

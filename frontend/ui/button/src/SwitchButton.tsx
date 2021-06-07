@@ -11,7 +11,7 @@ const base: any = ({ theme }) => ({
   borderRadius: theme.radii.extra,
 })
 
-const colors = switchProp('color', ({ theme }) => ({
+const colors = switchProp('color', ({ theme }: any) => ({
   stormdust: {
     background: theme.colors.stormdust,
   },
@@ -24,7 +24,7 @@ const StyledSwitchButton = styled.div(base, colors)
 
 const SwitchButtonItem = styled.div(flexbox)
 
-const cloneChild = (child, value, onChange = f => f) => {
+const cloneChild = (child, value, onChange = (f) => f) => {
   const active = child.props.value === value
 
   const props = {
@@ -43,7 +43,7 @@ const SwitchButton = ({ children, color, value, onChange }) => {
 
   return (
     <StyledSwitchButton color={color}>
-      {Children.map(children, child => (
+      {Children.map(children, (child) => (
         <SwitchButtonItem flexBasis={width}>{cloneChild(child, value, onChange)}</SwitchButtonItem>
       ))}
     </StyledSwitchButton>

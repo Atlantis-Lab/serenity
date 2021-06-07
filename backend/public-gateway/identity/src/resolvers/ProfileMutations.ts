@@ -19,11 +19,11 @@ export class ProfileMutations implements OnModuleInit {
     this.identityService = this.client.getService<identity.IdentityService>('IdentityService')
   }
 
-  @Mutation(returns => UpdateProfileResponse)
+  @Mutation((returns) => UpdateProfileResponse)
   updateProfile(
     @Args('input')
     input: UpdateProfileInput,
-    @Context('user') id: string,
+    @Context('user') id: string
   ) {
     return this.identityService.updateProfile({ ...input, id })
   }

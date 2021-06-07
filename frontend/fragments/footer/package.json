@@ -9,7 +9,7 @@
     "@ui/link": "0.0.5",
     "@ui/theme": "0.0.5"
   },
-  "peerDependencies": {
+  "dependencies": {
     "react": "16.13.1",
     "react-intl": "5.3.2"
   }

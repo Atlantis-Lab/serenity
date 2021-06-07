@@ -1,21 +1,18 @@
-import styled                                  from '@emotion/styled'
-import React, { useEffect, useRef, useState }  from 'react'
-import { useSwipeable }                        from 'react-swipeable'
-import { layout }                              from 'styled-system'
-import { ifProp }                              from 'styled-tools'
+import styled                                              from '@emotion/styled'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
+import { useSwipeable }                                    from 'react-swipeable'
+import { layout }                                          from 'styled-system'
+import { ifProp }                                          from 'styled-tools'
 
-import { ArrowBackwardIcon, ArrowForwardIcon } from '@ui/icons'
-import { contentWidth, widthWithMargin }       from '@ui/utils'
+import { ArrowBackwardIcon, ArrowForwardIcon }             from '@ui/icons'
+import { contentWidth, widthWithMargin }                   from '@ui/utils'
 
-import { SlideButton }                         from './SlideButton'
-
-interface CarouselProps {
-  transition: boolean
-}
+import { SlideButton }                                     from './SlideButton'
 
 const transition = ifProp('transition', { transition: '0.3s' })
 
-const StyledCarousel = styled.div<CarouselProps>(
+// @ts-ignore
+const StyledCarousel = styled.div<any>(
   {
     position: 'relative',
     display: 'flex',
@@ -25,7 +22,7 @@ const StyledCarousel = styled.div<CarouselProps>(
       pointerEvents: 'none',
     },
   },
-  transition,
+  transition
 )
 
 const Container = styled.div<any>(({ show }) => ({
@@ -38,24 +35,25 @@ const Screen = styled.div(
   {
     display: 'flex',
   },
-  layout,
+  layout
 )
 
 export const Carousel = ({ children, disableButton = false }) => {
   const [enableTransition, setEnableTransition] = useState(true)
-  const [innerWidth, setInnerWidth] = useState(null)
-  const [fullWidth, setFullWidth] = useState(null)
-  const [childWidth, setChildWidth] = useState(null)
+  const [innerWidth, setInnerWidth] = useState(0)
+  const [fullWidth, setFullWidth] = useState(0)
+  const [childWidth, setChildWidth] = useState([])
   const [buttonLeftDisabled, setButtonLeftDisabled] = useState(true)
   const [buttonRightDisabled, setButtonRightDisabled] = useState(false)
   const [left, setLeft] = useState(0)
-  const containerNode = useRef()
+  const containerNode = useRef(null)
   const screenNode = useRef(null)
 
-  const setWidth = () => {
+  const setWidth = useCallback(() => {
     setInnerWidth(contentWidth(containerNode.current))
     setChildWidth(
-      Array.prototype.map.call(screenNode.current.children, item => widthWithMargin(item)),
+      // @ts-ignore
+      Array.prototype.map.call(screenNode.current.children, (item) => widthWithMargin(item))
     )
     if (!disableButton && innerWidth === fullWidth) {
       setButtonRightDisabled(true)
@@ -63,17 +61,17 @@ export const Carousel = ({ children, disableButton = false }) => {
     if (!disableButton && innerWidth !== fullWidth) {
       setButtonRightDisabled(false)
     }
-  }
+  }, [disableButton, innerWidth, fullWidth])
 
   useEffect(() => {
     setFullWidth(contentWidth(screenNode.current))
-  })
+  }, [])
 
   useEffect(() => {
     setTimeout(() => {
       setWidth()
     }, 100)
-  }, [fullWidth])
+  }, [fullWidth, setWidth])
 
   useEffect(() => {
     if (!disableButton) {
@@ -81,9 +79,9 @@ export const Carousel = ({ children, disableButton = false }) => {
       return () => window.removeEventListener('resize', setWidth)
     }
     return undefined
-  }, [])
+  }, [disableButton, setWidth])
 
-  const swiping = data => {
+  const swiping = (data) => {
     if (innerWidth >= fullWidth) {
       return
     }
@@ -110,7 +108,7 @@ export const Carousel = ({ children, disableButton = false }) => {
     setEnableTransition(false)
   }
 
-  const handleClick = direction => {
+  const handleClick = (direction) => {
     let activeSlide = 0
     let activeLeft = 0
     for (;;) {
@@ -156,7 +154,7 @@ export const Carousel = ({ children, disableButton = false }) => {
   }
 
   const handlers = useSwipeable({
-    onSwiping: data => swiping(data),
+    onSwiping: (data) => swiping(data),
     preventDefaultTouchmoveEvent: true,
     trackMouse: true,
     trackTouch: true,

@@ -1,12 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "lint": "actl lint",
-    "test": "actl test",
     "commit": "actl commit",
-    "format": "actl format",
-    "typecheck": "actl typecheck",
-    "checkcommit": "actl precommit",
     "site:dev": "yarn workspace @site/app dev",
     "accounts:dev": "yarn workspace @accounts/app dev",
     "cookie-store:dev": "yarn workspace @accounts/cookie-store dev",
@@ -20,17 +15,36 @@
     "email:dev": "yarn workspace @email/app dev"
   },
   "devDependencies": {
-    "@atlantis-lab/actl": "^0.4.37",
-    "husky": "4.2.5",
-    "lerna": "3.22.1",
+    "@atlantis-lab/tsconfig": "^0.1.12",
+    "@atls/actl-cli": "^0.4.44",
+    "@types/jest": "^26.0.23",
+    "@types/node": "^15.6.0",
+    "@types/react": "^17.0.6",
+    "husky": "5.2.0",
     "typescript": "^4.2.2"
+  },
+  "resolutions": {
+    "@apollo/client": "^3.0.0-james.33.0",
+    "@nestjs/core": "7.6.17",
+    "@nestjs/common": "7.6.17",
+    "@nestjs/testing": "7.6.17",
+    "@nestjs/microservices": "7.6.17",
+    "@nestjs/terminus": "7.2.0",
+    "@types/jest": "^26.0.23",
+    "@types/node": "^14.14.41",
+    "@types/react": "^17.0.6",
+    "class-validator": "0.13.1",
+    "eslint-plugin-import": "2.22.0",
+    "typescript": "4.2.4",
+    "type-graphql": "1.0.0",
+    "next": "^10.2.3",
+    "react": "^17.0.2",
+    "react-intl": "5.18.3",
+    "react-dom": "^17.0.2"
   },
   "workspaces": [
     "frontend/**/*",
     "backend/**/*",
     "types/**/*"
-  ],
-  "husky": {
-    "hooks": {}
-  }
+  ]
 }

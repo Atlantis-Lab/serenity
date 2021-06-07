@@ -1,0 +1,21 @@
+{
+  "name": "@public-gateway/search",
+  "version": "0.0.0",
+  "license": "MIT",
+  "main": "src/index.ts",
+  "dependencies": {
+    "@nestjs/common": "6.10.5",
+    "@nestjs/graphql": "6.5.3",
+    "@nestjs/microservices": "6.10.5",
+    "@protos/collaboration": "0.0.1",
+    "@protos/interfaces": "0.1.1",
+    "@protos/search": "0.0.0",
+    "@public-gateway/collaboration": "workspace:backend/public-gateway/collaboration",
+    "rxjs": "6.5.3",
+    "type-graphql": "0.17.5"
+  },
+  "devDependencies": {
+    "@types/node": "12.12.14",
+    "typescript": "3.7.2"
+  }
+}

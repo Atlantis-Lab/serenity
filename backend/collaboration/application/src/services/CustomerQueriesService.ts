@@ -17,7 +17,7 @@ interface FindAllResponse<T> {
 export class CustomerQueriesService {
   constructor(
     @InjectRepository(Customer)
-    private readonly customerRepository: Repository<Customer>,
+    private readonly customerRepository: Repository<Customer>
   ) {}
 
   async findAll(filters: any = {}): Promise<FindAllResponse<Customer>> {

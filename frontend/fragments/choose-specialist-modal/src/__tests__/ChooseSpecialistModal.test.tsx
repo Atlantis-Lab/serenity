@@ -14,7 +14,7 @@ describe('Choose specialist modal fragment', () => {
           <ThemeProvider>
             <ChooseSpecialistModal />
           </ThemeProvider>
-        </IntlProvider>,
+        </IntlProvider>
       )
 
       expect(asFragment()).toMatchSnapshot()

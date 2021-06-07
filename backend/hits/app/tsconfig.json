@@ -1,3 +1,3 @@
 {
-  "extends": "@monstrs/tsconfig/tsconfig.app.json"
+  "extends": "../../../tsconfig.json"
 }

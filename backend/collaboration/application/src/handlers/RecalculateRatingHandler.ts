@@ -10,7 +10,7 @@ import { ReviewQueriesService }       from '../services'
 export class RecalculateRatingHandler implements Handler<ReviewCreated> {
   constructor(
     private readonly reviewService: ReviewQueriesService,
-    private readonly specialistRepository: SpecialistEntityRepository,
+    private readonly specialistRepository: SpecialistEntityRepository
   ) {}
 
   async handle(event: ReviewCreated): Promise<void> {

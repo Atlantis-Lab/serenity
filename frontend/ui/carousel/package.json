@@ -5,14 +5,16 @@
   "private": true,
   "main": "src/index.ts",
   "devDependencies": {
+    "@types/react": "^17.0.6",
     "@types/styled-system": "5.1.4",
     "@ui/icons": "0.1.1",
     "@ui/utils": "0.0.1",
     "react-swipeable": "5.5.0"
   },
-  "peerDependencies": {
-    "@emotion/styled": "^10.0.0",
-    "react": "16.13.1",
+  "dependencies": {
+    "@emotion/react": "^11.4.0",
+    "@emotion/styled": "^11.3.0",
+    "react": "^17.0.2",
     "styled-system": "^5.1.0",
     "styled-tools": "^1.7.0"
   }

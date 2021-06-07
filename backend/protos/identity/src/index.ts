@@ -3,18 +3,16 @@ import grpc                           from 'grpc'
 /* eslint-disable no-underscore-dangle */
 import path                           from 'path'
 import { ClientOptions, Transport }   from '@nestjs/microservices'
+import { loadSync }                   from '@grpc/proto-loader'
 
 import { PROTO_PATH as COMMON_PROTO } from '@protos/common'
-import { loadSync }                   from '@grpc/proto-loader'
 
 import { name }                       from '../package.json'
 
 declare const __non_webpack_require__: any
 
 const protosPath = path.dirname(
-  (typeof __non_webpack_require__ !== 'undefined' ? __non_webpack_require__ : require).resolve(
-    name,
-  ),
+  (typeof __non_webpack_require__ !== 'undefined' ? __non_webpack_require__ : require).resolve(name)
 )
 
 export const PROTO_PATH = path.join(protosPath, '../identity.proto')

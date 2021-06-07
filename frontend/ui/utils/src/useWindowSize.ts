@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+
 import { useEffect, useState } from 'react'
 
 interface WindowDimensions {
@@ -19,7 +21,7 @@ export function useWindowSize(): WindowDimensions {
 
   const isClient = typeof window !== 'undefined'
 
-  function fetchWindowDimensionsAndSave() {
+  const fetchWindowDimensionsAndSave = () => {
     if (isClient) {
       setWindowSize({
         innerWidth: window.innerWidth,

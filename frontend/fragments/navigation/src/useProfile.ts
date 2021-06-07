@@ -1,7 +1,7 @@
 import gql                     from 'graphql-tag'
 import { useEffect, useState } from 'react'
 
-import { useQuery }            from '@apollo/react-hooks'
+import { useQuery }            from '@apollo/client'
 
 export const query = gql`
   query Me {

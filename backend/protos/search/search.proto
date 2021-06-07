@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+import "../common/common.proto";
+
+package search;
+
+service SearchService {
+  rpc searchProjects (SearchProjectsRequest) returns (SearchProjectsResponse) {}
+  rpc searchSpecialists (SearchSpecialistsRequest) returns (SearchSpecialistsResponse) {}
+}
+
+message Search {
+  string id = 1;
+  float score = 2;
+}
+
+message ProjectsFilter {
+  repeated string id = 1;
+  string categoryId = 2;
+  string status = 3;
+}
+
+message SearchProjectsRequest {
+  common.Pager pager = 1;
+  common.Order order = 2;
+  ProjectsFilter filters = 3;
+  string query = 4;
+}
+
+message SearchProjectsResponse {
+  repeated Search rows = 1;
+  common.PageInfo pageInfo = 2;
+}
+
+message SpecialistsFilter {
+  repeated string id = 1;
+  string specialisationId = 2;
+}
+
+message SearchSpecialistsRequest {
+  common.Pager pager = 1;
+  common.Order order = 2;
+  SpecialistsFilter filters = 3;
+  string query = 4;
+}
+
+message SearchSpecialistsResponse {
+  repeated Search rows = 1;
+  common.PageInfo pageInfo = 2;
+}

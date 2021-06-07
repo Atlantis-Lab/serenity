@@ -4,18 +4,17 @@
   "license": "MIT",
   "main": "src/index.tsx",
   "dependencies": {
-    "@design/ui": "0.3.1",
-    "@testing-library/react": "9.3.2",
-    "@ui/button": "0.3.1",
-    "@ui/divider": "0.0.1",
-    "@ui/input": "0.0.1",
-    "@ui/layout": "0.0.5",
-    "@ui/select": "0.0.1",
-    "@ui/text": "0.3.1",
-    "@ui/theme": "0.0.5"
-  },
-  "peerDependencies": {
+    "@ui/button": "workspace:frontend/ui/button",
+    "@ui/divider": "workspace:frontend/ui/divider",
+    "@ui/input": "workspace:frontend/ui/input",
+    "@ui/layout": "workspace:frontend/ui/layout",
+    "@ui/select": "workspace:frontend/ui/select",
+    "@ui/text": "workspace:frontend/ui/text",
+    "@ui/theme": "workspace:frontend/ui/theme",
     "react": "16.13.1",
     "react-intl": "5.3.2"
+  },
+  "devDependencies": {
+    "@testing-library/react": "^11.2.7"
   }
 }

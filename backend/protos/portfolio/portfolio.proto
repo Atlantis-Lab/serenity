@@ -1,0 +1,67 @@
+syntax = "proto3";
+
+import "../common/common.proto";
+
+package portfolio;
+
+service PortfolioService {
+  rpc getPortfolio (GetPortfolioRequest) returns (GetPortfolioResponse) {}
+  rpc createPortfolio (CreatePortfolioRequest) returns (CreatePortfolioResponse) {}
+  rpc updatePortfolio (UpdatePortfolioRequest) returns (UpdatePortfolioResponse) {}
+}
+
+message PortfolioFilter {
+  repeated string id = 1;
+  repeated string userId = 2;
+}
+
+message Portfolio {
+  string id = 1;
+  string name = 2;
+  repeated string images = 3;
+  string userId = 4;
+}
+
+message GetPortfolioRequest {
+  common.Pager pager = 1;
+  common.Order order = 2;
+  PortfolioFilter filters = 3;
+}
+
+message GetPortfolioResponse {
+  repeated Portfolio rows = 1;
+  common.PageInfo pageInfo = 2;
+}
+
+message CreatePortfolioRequest {
+  string userId = 1;
+  string name = 2;
+  repeated string images = 3;
+}
+
+message CreatePortfolioErrors {
+  string name = 1;
+}
+
+message CreatePortfolioResponse {
+  CreatePortfolioErrors errors = 1;
+  Portfolio result = 2;
+}
+
+message UpdatePortfolioRequest {
+  string id = 1;
+  string userId = 2;
+  string name = 3;
+  repeated string images = 4;
+}
+
+message UpdatePortfolioErrors {
+  string id = 1;
+  string userId = 2;
+  string name = 3;
+}
+
+message UpdatePortfolioResponse {
+  UpdatePortfolioErrors errors = 1;
+  Portfolio result = 2;
+}

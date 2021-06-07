@@ -10,7 +10,7 @@ export class RegisterUserCommand {
     {},
     {
       message: messages.invalidEmail.defaultMessage,
-    },
+    }
   )
   @IsEntityNotExists(
     {
@@ -19,7 +19,7 @@ export class RegisterUserCommand {
     },
     {
       message: messages.emailAlreadyExists.defaultMessage,
-    },
+    }
   )
   email: string
 

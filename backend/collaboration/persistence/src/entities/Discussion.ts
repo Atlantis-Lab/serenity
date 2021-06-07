@@ -26,16 +26,10 @@ export class Discussion {
   @Column()
   customerId: string
 
-  @OneToOne(
-    type => Reply,
-    reply => reply.discussion,
-  )
+  @OneToOne((type) => Reply, (reply) => reply.discussion)
   reply: Reply
 
-  @OneToMany(
-    type => Message,
-    message => message.discussion,
-  )
+  @OneToMany((type) => Message, (message) => message.discussion)
   messages: Message[]
 
   @CreateDateColumn()

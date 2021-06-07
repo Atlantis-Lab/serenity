@@ -15,21 +15,22 @@ export class ReplyLoader implements NestDataLoader, OnModuleInit {
   private collaborationService: collaboration.CollaborationService
 
   onModuleInit() {
-    this.collaborationService = this.client.getService<collaboration.CollaborationService>(
-      'CollaborationService',
-    )
+    this.collaborationService =
+      this.client.getService<collaboration.CollaborationService>('CollaborationService')
   }
 
   getReplies = async (projectId: string[]) => {
     const replies = await this.collaborationService
       .getReplies({ filters: { projectId } })
-      .pipe(map(data => data.rows))
+      .pipe(map((data) => data.rows))
       .toPromise()
 
-    return projectId.map(id => replies.filter(reply => reply.projectId === id))
+    // @ts-ignore
+    return projectId.map((id) => replies.filter((reply) => reply.projectId === id))
   }
 
   generateDataLoader(): DataLoader<any, any> {
+    // @ts-ignore
     return new DataLoader<string, collaboration.Reply[]>(this.getReplies)
   }
 }

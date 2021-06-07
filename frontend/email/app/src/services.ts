@@ -20,7 +20,7 @@ const createMailerService = () => {
 
 const mailerService = createMailerService()
 
-export const getSending = id =>
+export const getSending = (id) =>
   new Promise((resolve, reject) => {
     mailerService.getSending({ id }, (error, response) => {
       if (error) {

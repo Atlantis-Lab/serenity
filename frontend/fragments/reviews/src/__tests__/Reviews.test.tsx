@@ -11,7 +11,7 @@ describe('Reviews', () => {
       const { asFragment } = render(
         <ThemeProvider>
           <Reviews />
-        </ThemeProvider>,
+        </ThemeProvider>
       )
 
       expect(asFragment()).toMatchSnapshot()

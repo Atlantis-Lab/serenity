@@ -101,7 +101,7 @@ export const ProjectShort = ({
                         replyStatus === 'performed' ||
                         replyStatus === 'completed') &&
                         messages.selected) ||
-                      messages.notYouSelected,
+                      messages.notYouSelected
                   )}
                 </Text>
               </Layout>

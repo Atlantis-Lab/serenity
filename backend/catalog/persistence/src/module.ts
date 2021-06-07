@@ -11,7 +11,9 @@ const feature = TypeOrmModule.forFeature([CategoryGroup, Category])
 @Global()
 @Module({
   imports: [LoggerModule, feature.module, TypeOrmModule.forRoot(config)],
+  // @ts-ignore
   providers: [...feature.providers, CategoryGroupEntityRepository, CategoryEntityRepository],
+  // @ts-ignore
   exports: [...feature.exports, CategoryGroupEntityRepository, CategoryEntityRepository],
 })
 export class PersistenceModule {}

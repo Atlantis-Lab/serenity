@@ -19,11 +19,13 @@ const ChatFragment = () => {
     if (activeChat) {
       onAddChat(activeChat)
     }
-  }, [activeChat])
+  }, [activeChat, onAddChat])
 
   useEffect(() => {
     if (discussions && discussions[0]) {
-      setUnread(discussions.some(discussion => discussion.messages.some(message => !message.read)))
+      setUnread(
+        discussions.some((discussion) => discussion.messages.some((message) => !message.read))
+      )
     }
   }, [discussions])
 

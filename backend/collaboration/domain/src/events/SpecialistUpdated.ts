@@ -15,7 +15,7 @@ export class SpecialistUpdated extends Event {
     readonly specialistId: Uuid,
     readonly interaction: PrivatePerson | Company,
     readonly specialisation: Specialisation,
-    readonly description: string,
+    readonly description: string
   ) {
     super()
   }

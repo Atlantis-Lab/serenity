@@ -1,10 +1,28 @@
-import { Module }                                                  from '@nestjs/common'
+import { Module } from '@nestjs/common'
 
-import { IdentityQueries, ProfileMutations, ProfilePhotoResolver } from './resolvers'
+import {
+  DiscussionsResolver,
+  IdentityQueries,
+  MemberResolver,
+  PortfolioResolver,
+  ProfileMutations,
+  ProfilePhotoResolver,
+  ProjectsResolver,
+  RepliesResolver,
+} from './resolvers'
 
 export * from './types'
 
 @Module({
-  providers: [IdentityQueries, ProfileMutations, ProfilePhotoResolver],
+  providers: [
+    IdentityQueries,
+    PortfolioResolver,
+    ProfileMutations,
+    ProfilePhotoResolver,
+    MemberResolver,
+    ProjectsResolver,
+    RepliesResolver,
+    DiscussionsResolver,
+  ],
 })
 export class IdentityModule {}

@@ -15,7 +15,7 @@ export class ReplyService {
     private readonly projectRepository: ProjectEntityRepository,
     private readonly messageRepository: MessageEntityRepository,
     private readonly discussionRepository: DiscussionEntityRepository,
-    private readonly replyRepository: ReplyEntityRepository,
+    private readonly replyRepository: ReplyEntityRepository
   ) {}
 
   async addMessage(command: AddReplyMessageCommand): Promise<any> {

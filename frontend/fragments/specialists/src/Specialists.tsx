@@ -38,7 +38,7 @@ export const Specialists = ({
         showArrow={false}
         onSearch={onSearch}
       >
-        {searchData.map(item => (
+        {searchData.map((item) => (
           <Option key={item.id} value={item.name}>
             {item.name}
           </Option>
@@ -48,7 +48,7 @@ export const Specialists = ({
     <Layout flexBasis={7} />
     <Layout>
       <Column>
-        {specialists.map(specialist => (
+        {specialists.map((specialist) => (
           <Box
             key={specialist.id}
             my='7px'
@@ -108,7 +108,9 @@ export const Specialists = ({
                             <Layout alignItems='center'>
                               <Layout>
                                 <Text color='silver' lineHeight='medium' wordBreak='break-word'>
-                                  {specialist.specialisation.main.map(item => item.name).join(', ')}
+                                  {specialist.specialisation.main
+                                    .map((item) => item.name)
+                                    .join(', ')}
                                 </Text>
                               </Layout>
                               <Layout>
@@ -171,7 +173,7 @@ export const Specialists = ({
               <Layout ml={-16} width='100%'>
                 <Carousel disableButton>
                   {specialist.portfolio.map(
-                    item =>
+                    (item) =>
                       item.images[0] && (
                         <Image
                           key={item.images[0].id}
@@ -181,7 +183,7 @@ export const Specialists = ({
                           mx={16}
                           src={item.images[0].url}
                         />
-                      ),
+                      )
                   )}
                 </Carousel>
               </Layout>

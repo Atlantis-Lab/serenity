@@ -14,6 +14,7 @@ export const Select = ({
 }) => (
   <RcSelect
     className={`${selectStyles} ${rounded ? selectRoundedStyles : ''}`}
+    // @ts-ignore
     dropdownClassName={dropdownStyles}
     showSearch={false}
     multiple={multiple}

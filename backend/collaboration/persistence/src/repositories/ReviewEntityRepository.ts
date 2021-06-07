@@ -14,7 +14,7 @@ export class ReviewEntityRepository extends WriteRepository<ReviewEntity, Review
   constructor(
     private readonly connection: Connection,
     private readonly logger: Logger,
-    private readonly bus: Bus,
+    private readonly bus: Bus
   ) {
     // @ts-ignore
     super(ReviewEntity, Review, connection, bus, logger)

@@ -1,8 +1,7 @@
 import uuid                        from 'uuid/v4'
+import { AggregateRoot }           from '@node-ts/ddd'
 /* eslint-disable class-methods-use-this */
 import { AggregateRootProperties } from '@node-ts/ddd-types'
-
-import { AggregateRoot }           from '@node-ts/ddd'
 
 import { ReviewCreated }           from '../events'
 
@@ -25,12 +24,12 @@ export class Review extends AggregateRoot implements AggregateRootProperties {
     customerId: string,
     specialistId: string,
     rating: number,
-    comment: string,
+    comment: string
   ) {
     const review = new Review(uuid())
 
     review.when(
-      new ReviewCreated(review.id, projectId, replyId, customerId, specialistId, rating, comment),
+      new ReviewCreated(review.id, projectId, replyId, customerId, specialistId, rating, comment)
     )
 
     return review

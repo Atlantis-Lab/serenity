@@ -4,7 +4,7 @@ export const useOnKeyPress = ({ onEnter, onKeyPress }) => {
   }
 
   return {
-    onKeyPress: event => {
+    onKeyPress: (event) => {
       if (event.key === 'Enter' && onEnter) {
         onEnter()
       }

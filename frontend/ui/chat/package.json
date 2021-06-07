@@ -5,7 +5,8 @@
   "private": true,
   "main": "src/index.ts",
   "devDependencies": {
-    "@design/ui": "0.3.1",
+    "@types/events": "^3",
+    "@types/react": "^17.0.6",
     "@ui/avatar": "0.0.1",
     "@ui/button": "0.3.1",
     "@ui/divider": "0.0.1",
@@ -15,9 +16,11 @@
     "@ui/relative-time": "0.0.1",
     "@ui/text": "0.3.1"
   },
-  "peerDependencies": {
-    "@emotion/styled": "^10.0.0",
-    "react": "16.13.1",
+  "dependencies": {
+    "@emotion/react": "^11.4.0",
+    "@emotion/styled": "^11.3.0",
+    "events": "^3.3.0",
+    "react": "^17.0.2",
     "styled-tools": "1.7.0"
   }
 }

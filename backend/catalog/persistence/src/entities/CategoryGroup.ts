@@ -20,10 +20,7 @@ export class CategoryGroup {
   @Column()
   name: string
 
-  @OneToMany(
-    type => Category,
-    category => category.group,
-  )
+  @OneToMany((type) => Category, (category) => category.group)
   children: Category[]
 
   @CreateDateColumn()

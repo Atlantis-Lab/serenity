@@ -3,7 +3,7 @@ import { Field, ObjectType } from 'type-graphql'
 @ObjectType()
 export class Activity {
   @Field({ nullable: true })
-  get last(): Date {
+  get last(): Date | undefined {
     return this.lastActivity
   }
 

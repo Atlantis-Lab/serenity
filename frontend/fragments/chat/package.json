@@ -11,7 +11,9 @@
     "@ui/drawer": "0.3.1",
     "@ui/theme": "0.0.5"
   },
-  "peerDependencies": {
+  "dependencies": {
+    "@apollo/client": "^3.3.19",
+    "graphql": "^15.5.0",
     "graphql-tag": "^2.10.0",
     "react": "16.13.1",
     "react-intl": "5.3.2"

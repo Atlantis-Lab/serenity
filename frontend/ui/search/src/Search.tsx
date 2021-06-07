@@ -41,7 +41,7 @@ const StyledSearchIcon = styled.div<IconProps>(
     top: 0,
     left: 16,
   },
-  iconSize,
+  iconSize
 )
 
 export const Search = ({
@@ -57,18 +57,20 @@ export const Search = ({
   const [interval, setInterval] = useState(null)
   const [value, setValue] = useState(defaultValue)
 
-  const fetchData = fetchValue => {
+  const fetchData = (fetchValue) => {
     if (interval) {
+      // @ts-ignore
       clearTimeout(interval)
       setInterval(null)
     }
 
+    // @ts-ignore
     setInterval(setTimeout(() => onSearch(fetchValue), 500))
   }
 
-  const onChange = changValue => setValue(changValue)
+  const onChange = (changValue) => setValue(changValue)
 
-  const onKeyDown = e => {
+  const onKeyDown = (e) => {
     if (e.keyCode === 13) {
       if (onSelectValue) {
         onSelectValue(value)

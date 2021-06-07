@@ -29,5 +29,5 @@ export const SidebarLink = styled.a<SidebarProps>(
   ifProp('active', ({ theme }: any) => ({
     color: theme.colors.black,
     cursor: 'auto',
-  })),
+  }))
 )

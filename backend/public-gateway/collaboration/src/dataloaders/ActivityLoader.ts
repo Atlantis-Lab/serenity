@@ -22,11 +22,12 @@ export class ActivityLoader implements NestDataLoader, OnModuleInit {
   getActivities(id: string[]) {
     return this.hitsService
       .getActivities({ filters: { id } })
-      .pipe(map(data => data.rows))
+      .pipe(map((data) => data.rows))
       .toPromise()
   }
 
   generateDataLoader(): DataLoader<any, any> {
+    // @ts-ignore
     return new DataLoader<string, hits.Activity[]>(this.getActivities.bind(this))
   }
 }

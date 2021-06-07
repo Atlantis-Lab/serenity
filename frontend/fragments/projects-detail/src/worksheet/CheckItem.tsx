@@ -5,7 +5,7 @@ import { Text }           from '@ui/text'
 
 export const CheckItem = ({ caption, data, values }) => {
   const keys = Object.keys(data)
-  const filtered = keys.filter(key => data[key])
+  const filtered = keys.filter((key) => data[key])
 
   if (filtered.length !== 0) {
     return (
@@ -19,7 +19,7 @@ export const CheckItem = ({ caption, data, values }) => {
           <Layout flexBasis='6px' />
           <Layout>
             <Text fontSize='regular' lineHeight='medium'>
-              {filtered.map(item => values[item]).join(', ')}
+              {filtered.map((item) => values[item]).join(', ')}
             </Text>
           </Layout>
           <Layout flexBasis={27} />

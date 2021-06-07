@@ -12,13 +12,13 @@ export class User {
   @Column()
   version: number
 
-  @Column(type => Email)
+  @Column((type) => Email)
   email: Email
 
-  @Column(type => Credentials)
+  @Column((type) => Credentials)
   credentials: Credentials
 
-  @Column(type => Profile)
+  @Column((type) => Profile)
   profile: Profile
 
   @CreateDateColumn()

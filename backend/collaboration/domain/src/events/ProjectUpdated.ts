@@ -20,7 +20,7 @@ export class ProjectUpdated extends Event {
     readonly budget: number,
     readonly legalEntitiesOnly: boolean,
     readonly worksheet: string,
-    readonly description?: string,
+    readonly description?: string
   ) {
     super()
   }

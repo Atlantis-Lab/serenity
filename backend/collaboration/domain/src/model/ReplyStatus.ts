@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-shadow
 export enum ReplyStatus {
   new = 'new',
   candidate = 'candidate',

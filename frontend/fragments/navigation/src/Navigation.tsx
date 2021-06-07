@@ -1,5 +1,5 @@
 import React                                        from 'react'
-import { WithUser, WithoutUser }                    from '@atlantis-lab/react-user'
+import { WithUser, WithoutUser }                    from '@atls/react-user'
 
 import Chat                                         from '@fragments/chat'
 import { Button }                                   from '@ui/button'

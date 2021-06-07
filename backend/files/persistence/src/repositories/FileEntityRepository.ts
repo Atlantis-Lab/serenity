@@ -14,7 +14,7 @@ export class FileEntityRepository extends WriteRepository<FileEntity, File> {
   constructor(
     private readonly connection: Connection,
     private readonly logger: Logger,
-    private readonly bus: Bus,
+    private readonly bus: Bus
   ) {
     // @ts-ignore
     super(FileEntity, File, connection, bus, logger)

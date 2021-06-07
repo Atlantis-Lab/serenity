@@ -3,7 +3,7 @@ import { useIntl }        from 'react-intl'
 
 import { ProjectsDetail } from './ProjectsDetail'
 
-const ProjectsDetailFragment = data => {
+const ProjectsDetailFragment = (data) => {
   const intl = useIntl()
 
   return <ProjectsDetail intl={intl} {...data} />

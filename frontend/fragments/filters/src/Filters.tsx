@@ -23,7 +23,7 @@ export const Filters = ({
     <Layout flexBasis={20} />
     <Box border='black' borderRadius='extra' boxSizing='border-box'>
       <Collapse activeKey={activeKey} onChange={onChange}>
-        {data.map(item => (
+        {data.map((item: any) => (
           <Panel
             header={item.name}
             key={item.id}
@@ -33,7 +33,7 @@ export const Filters = ({
                   width={16}
                   height={16}
                   color={
-                    item.children.some(child => child.id === activeCategory)
+                    item.children.some((child) => child.id === activeCategory)
                       ? 'black'
                       : 'rgb(153, 153, 153)'
                   }
@@ -42,7 +42,7 @@ export const Filters = ({
             }
           >
             <Column>
-              {item.children.map((category, num) => (
+              {(item as any).children.map((category: any, num: any) => (
                 <Box key={category.id} mt={num === 0 ? 0 : 12} alignItems='center'>
                   <Layout>
                     {check && (

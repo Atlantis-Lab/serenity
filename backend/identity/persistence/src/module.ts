@@ -11,7 +11,9 @@ const feature = TypeOrmModule.forFeature([User])
 @Global()
 @Module({
   imports: [LoggerModule, feature.module, TypeOrmModule.forRoot(config)],
+  // @ts-ignore
   providers: [...feature.providers, UserStoreRepository],
+  // @ts-ignore
   exports: [...feature.exports, UserStoreRepository],
 })
 export class PersistenceModule {}

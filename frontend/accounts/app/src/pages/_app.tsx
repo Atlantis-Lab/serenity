@@ -1,11 +1,12 @@
 import App                                   from 'next/app'
 import React                                 from 'react'
 import compose                               from 'recompose/compose'
-import { withHelmet }                        from '@atlantis-lab/next-app-with-helmet'
+import { withHelmet }                        from '@atls/next-app-with-helmet'
 
 import { ThemeProvider, injectGlobalStyles } from '@ui/theme'
-import { withEmotion }                       from '@atlantis-lab/next-app-with-emotion'
-import { withIntl }                          from '@atlantis-lab/next-app-with-intl'
+
+import { withEmotion }                       from '../providers'
+import { withIntl }                          from '../providers'
 
 class AccountsApp extends App {
   static async getInitialProps({ Component, ctx }: any): Promise<any> {
@@ -40,7 +41,7 @@ export const withProviders = compose(
     Provider: ThemeProvider,
     injectGlobalStyles,
   }),
-  withHelmet(),
+  withHelmet()
 )
 
 export default withProviders(AccountsApp)

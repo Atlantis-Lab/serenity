@@ -10,13 +10,13 @@ import { ProjectLoader }                   from '../dataloaders'
 import { Reply }                           from '../types'
 
 @Injectable()
-@Resolver(of => Reply)
+@Resolver((of) => Reply)
 export class ReplyResolver {
   @ResolveProperty()
   project(
     @Root() { projectId }: collaboration.Reply,
     @Loader(ProjectLoader.name)
-    projectLoader: DataLoader<any, any>,
+    projectLoader: DataLoader<any, any>
   ) {
     return projectLoader.load(projectId)
   }

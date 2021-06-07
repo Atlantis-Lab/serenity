@@ -4,12 +4,13 @@
   "license": "MIT",
   "private": true,
   "main": "src/index.ts",
-  "devDependencies": {
-    "@design/ui": "0.3.1"
-  },
-  "peerDependencies": {
-    "@emotion/styled": "^10.0.0",
-    "react": "16.13.1",
+  "dependencies": {
+    "@emotion/react": "^11.4.0",
+    "@emotion/styled": "^11.3.0",
+    "react": "^17.0.2",
     "styled-tools": "^1.7.0"
+  },
+  "devDependencies": {
+    "@types/react": "^17"
   }
 }

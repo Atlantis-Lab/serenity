@@ -8,7 +8,7 @@ import { Activity }         from '@hits/persistence'
 export class TrackActivityService {
   constructor(
     @InjectRepository(Activity)
-    private readonly activityRepository: Repository<Activity>,
+    private readonly activityRepository: Repository<Activity>
   ) {}
 
   async track(id: string): Promise<any> {

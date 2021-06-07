@@ -24,7 +24,7 @@ const Container = styled.div(
   {
     width: '100%',
   },
-  sizes,
+  sizes
 )
 
 const StyledNavigation = styled.div(base, sizes, fixedPosition)

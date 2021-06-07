@@ -17,7 +17,7 @@ import { MapValidationErrorsInterceptor }                        from '@monstrs/
 export class ProjectController {
   constructor(
     private readonly projectService: ProjectService,
-    private readonly replyService: ReplyQueriesService,
+    private readonly replyService: ReplyQueriesService
   ) {}
 
   @GrpcMethod('CollaborationService', 'updateProject')

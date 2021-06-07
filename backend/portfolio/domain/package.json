@@ -1,0 +1,17 @@
+{
+  "name": "@portfolio/domain",
+  "version": "0.0.0",
+  "license": "MIT",
+  "main": "src/index.ts",
+  "dependencies": {
+    "@nestjs/common": "6.10.5",
+    "@node-ts/bus-core": "0.4.9",
+    "@node-ts/bus-messages": "0.1.10",
+    "@node-ts/bus-postgres": "0.3.10",
+    "@node-ts/bus-workflow": "0.4.9",
+    "@node-ts/ddd": "0.1.4",
+    "@node-ts/ddd-types": "0.1.2",
+    "@node-ts/logger-core": "0.1.0",
+    "uuid": "3.4.0"
+  }
+}

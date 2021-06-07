@@ -89,7 +89,7 @@ export class Project extends AggregateRoot implements ProjectProperties {
     budget: number,
     legalEntitiesOnly: boolean,
     worksheet: string,
-    description?: string,
+    description?: string
   ): Project {
     const project = new Project(id)
 
@@ -105,8 +105,8 @@ export class Project extends AggregateRoot implements ProjectProperties {
         budget,
         legalEntitiesOnly,
         worksheet,
-        description,
-      ),
+        description
+      )
     )
 
     return project
@@ -120,7 +120,7 @@ export class Project extends AggregateRoot implements ProjectProperties {
     budget: number,
     legalEntitiesOnly: boolean,
     worksheet: string,
-    description?: string,
+    description?: string
   ) {
     this.when(
       new ProjectUpdated(
@@ -132,8 +132,8 @@ export class Project extends AggregateRoot implements ProjectProperties {
         budget,
         legalEntitiesOnly,
         worksheet,
-        description,
-      ),
+        description
+      )
     )
   }
 
@@ -182,7 +182,7 @@ export class Project extends AggregateRoot implements ProjectProperties {
       this.customerId,
       reply.specialistId,
       rating,
-      comment,
+      comment
     )
   }
 
@@ -194,6 +194,7 @@ export class Project extends AggregateRoot implements ProjectProperties {
     this.customerId = event.customerId
     this.name = event.name
     this.categoryId = event.categoryId
+    // @ts-ignore
     this.description = event.description
     this.photos = event.photos
     this.address = event.address
@@ -205,6 +206,7 @@ export class Project extends AggregateRoot implements ProjectProperties {
 
   protected whenProjectUpdated(event: ProjectUpdated): void {
     this.name = event.name
+    // @ts-ignore
     this.description = event.description
     this.photos = event.photos
     this.address = event.address
@@ -230,6 +232,7 @@ export class Project extends AggregateRoot implements ProjectProperties {
 
   protected whenProjectReplyRejected(event: ProjectReplyRejected): void {
     this.status = ProjectStatus.published
+    // @ts-ignore
     this.selectedReplyId = null
   }
 

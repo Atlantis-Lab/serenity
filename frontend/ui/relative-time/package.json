@@ -4,8 +4,9 @@
   "license": "MIT",
   "private": true,
   "main": "src/index.ts",
-  "peerDependencies": {
-    "@emotion/styled": "^10.0.0",
+  "dependencies": {
+    "@emotion/react": "^11.4.0",
+    "@emotion/styled": "^11.3.0",
     "react": "16.13.1",
     "react-intl": "5.3.2"
   }

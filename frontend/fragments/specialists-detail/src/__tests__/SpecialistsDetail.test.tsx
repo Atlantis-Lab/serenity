@@ -20,7 +20,7 @@ describe('Specialists detail', () => {
           <ThemeProvider>
             <TestComponent />
           </ThemeProvider>
-        </IntlProvider>,
+        </IntlProvider>
       )
 
       expect(asFragment()).toMatchSnapshot()

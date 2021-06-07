@@ -1,7 +1,7 @@
 /* eslint-disable import/no-dynamic-require */
 /* eslint-disable global-require */
 /* eslint-disable no-empty */
-import { injectGlobal } from 'emotion'
+import { injectGlobal } from '@emotion/css'
 
 const fontFace = (family, type, weight, style = 'normal') => ({
   '@font-face': {

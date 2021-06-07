@@ -36,10 +36,10 @@ const StyledInnerChat = styled.div<ActiveProps>(
     height: '100%',
     overflow: 'auto',
   },
-  activeInnerChat,
+  activeInnerChat
 )
 
-const alignment = switchProp('align', ({ theme }) => ({
+const alignment = switchProp('align', ({ theme }: any) => ({
   left: {
     borderRadius: '8px 8px 8px 0',
     backgroundColor: theme.colors.gallery,
@@ -73,7 +73,7 @@ const ChatMessage = styled.div<ChatMessageProps>(
     },
     */
   }),
-  alignment,
+  alignment
 )
 
 export const InnerChat = ({
@@ -89,13 +89,14 @@ export const InnerChat = ({
   const node = useRef(null)
 
   useEffect(() => {
+    // @ts-ignore
     node.current.scrollTop = node.current.scrollHeight
   }, [item])
 
   return (
     <StyledInnerChat active={activeChat.id === item.recipient.id}>
       <Box flexDirection='column' width='100%' overflowY='scroll' ref={node}>
-        {item.messages.map(message => (
+        {item.messages.map((message) => (
           <ChatMessage
             align={!message.member || owner === message.member.id ? 'right' : 'left'}
             unread={!message.read}

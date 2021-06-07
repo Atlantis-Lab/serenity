@@ -1,24 +1,27 @@
-import App                                   from 'next/app'
-import compose                               from 'recompose/compose'
-import { withApollo }                        from '@atlantis-lab/next-app-with-apollo'
-import { withHelmet }                        from '@atlantis-lab/next-app-with-helmet'
-import { withProvider }                      from '@atlantis-lab/next-app-with-provider'
-import { withUser }                          from '@atlantis-lab/next-app-with-user'
+import App                    from 'next/app'
+import compose                from 'recompose/compose'
+import { withApollo }         from '@atls/next-app-with-apollo'
+import { withHelmet }         from '@atls/next-app-with-helmet'
+import { ChatProvider }       from '@ui/chat'
 
-import { ChatProvider }                      from '@ui/chat'
+import { withAuth }           from '../providers'
+import { withEmotion }        from '../providers'
+import { withUser }           from '../providers'
+import { withIntl }           from '../providers'
+
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable global-require */
-import { ThemeProvider, injectGlobalStyles } from '@ui/theme'
-import { withAuth }                          from '@atlantis-lab/next-app-with-auth'
-import { withEmotion }                       from '@atlantis-lab/next-app-with-emotion'
-import { withIntl }                          from '@atlantis-lab/next-app-with-intl'
+import { ThemeProvider }      from '@ui/theme'
+import { injectGlobalStyles } from '@ui/theme'
+import { withProvider }       from '@atls/next-app-with-provider'
 
 export const withProviders = compose(
   withApollo({
     uri: (process as any).browser
       ? window.__NEXT_DATA__.props.apolloUrl
       : process.env.PUBLIC_GATEWAY_URL || 'https://public-gateway.local.serenity.atls.tech',
+    // @ts-ignore
     fetch: (uri, options, props) => {
       if (props.token) {
         options.headers.authorization = props.token
@@ -41,7 +44,7 @@ export const withProviders = compose(
     injectGlobalStyles,
   }),
   withHelmet(),
-  withProvider(ChatProvider),
+  withProvider(ChatProvider)
 )
 
 export default withProviders(App)

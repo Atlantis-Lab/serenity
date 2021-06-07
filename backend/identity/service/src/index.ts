@@ -10,6 +10,7 @@ declare const module: any
 const bootstrap = async () => {
   const app = await NestFactory.createMicroservice(ServiceModule, serverOptions)
 
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   useContainer(app.select(ServiceModule), {
     fallback: true,
     fallbackOnErrors: true,

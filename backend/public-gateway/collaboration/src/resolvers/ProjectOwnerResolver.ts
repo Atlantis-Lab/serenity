@@ -9,13 +9,13 @@ import { ActivityLoader, CustomerLoader, UserLoader } from '../dataloaders'
 import { ProjectOwner }                               from '../types'
 
 @Injectable()
-@Resolver(of => ProjectOwner)
+@Resolver((of) => ProjectOwner)
 export class ProjectOwnerResolver {
   @ResolveProperty()
   async profile(
     @Root() { customerId }: any,
     @Loader(UserLoader.name)
-    userLoader: DataLoader<any, any>,
+    userLoader: DataLoader<any, any>
   ) {
     const user = await userLoader.load(customerId)
 
@@ -26,7 +26,7 @@ export class ProjectOwnerResolver {
   member(
     @Root() { customerId }: any,
     @Loader(CustomerLoader.name)
-    customerLoader: DataLoader<any, any>,
+    customerLoader: DataLoader<any, any>
   ) {
     if (!customerId) {
       return null
@@ -39,7 +39,7 @@ export class ProjectOwnerResolver {
   activity(
     @Root() { customerId }: any,
     @Loader(ActivityLoader.name)
-    activityLoader: DataLoader<any, any>,
+    activityLoader: DataLoader<any, any>
   ) {
     if (!customerId) {
       return null

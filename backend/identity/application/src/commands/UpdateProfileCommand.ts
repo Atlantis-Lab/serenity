@@ -19,6 +19,7 @@ export class UpdateProfileCommand {
 
   @IsOptional()
   @IsMobilePhone('ru-RU', {
+    // @ts-ignore
     message: messages.invalidPhone.defaultMessage,
   })
   readonly phone: string
@@ -35,6 +36,6 @@ export class UpdateProfileCommand {
 
   @IsOptional()
   @IsUrl()
-  @Transform(value => (value === '' ? null : value))
+  @Transform((value) => (value === '' ? null : value))
   website: string
 }

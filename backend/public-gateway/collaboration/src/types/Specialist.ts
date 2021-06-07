@@ -1,4 +1,5 @@
 import { Profile } from '@public-gateway/identity'
+import { Portfolio } from '@public-gateway/portfolio'
 import { Field, ObjectType } from 'type-graphql'
 
 import { Interaction } from './Interaction'
@@ -30,6 +31,9 @@ export class Specialist {
 
   @Field(type => Profile)
   profile: Profile
+
+  @Field(type => [Portfolio])
+  portfolio: Portfolio[]
 
   @Field(type => [Review])
   reviews: Review[]

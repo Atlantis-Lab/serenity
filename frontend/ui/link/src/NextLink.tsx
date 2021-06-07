@@ -25,7 +25,7 @@ export const NextLink = withRouter(({ router, href, children, ...props }: NextLi
   <Link
     {...props}
     href={href}
-    onClick={event => {
+    onClick={(event) => {
       event.preventDefault()
 
       if (router) {
@@ -42,7 +42,7 @@ export const NextNavLink = withRouter(({ router, href, children, ...props }: Nex
     {...props}
     href={href}
     active={router && router.pathname === href}
-    onClick={event => {
+    onClick={(event) => {
       event.preventDefault()
 
       if (router) {
@@ -60,7 +60,7 @@ export const NextSidebarLink = withRouter(
       {...props}
       href={href}
       active={router && router.asPath === href}
-      onClick={event => {
+      onClick={(event) => {
         event.preventDefault()
 
         if (router && href) {
@@ -70,5 +70,5 @@ export const NextSidebarLink = withRouter(
     >
       {children}
     </SidebarLink>
-  ),
+  )
 )

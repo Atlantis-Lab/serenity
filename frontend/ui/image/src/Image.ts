@@ -18,7 +18,7 @@ const StyledImage = styled.img<any>(
     cursor: true,
   }),
   layout,
-  space,
+  space
 )
 
 export const Image = (props: Partial<ImageProps>) => createElement(StyledImage, { ...props })

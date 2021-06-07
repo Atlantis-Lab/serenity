@@ -13,7 +13,7 @@ export class FileCreated extends Event {
     readonly fileId: Uuid,
     readonly type: string,
     readonly name: string,
-    readonly url: string,
+    readonly url: string
   ) {
     super()
   }

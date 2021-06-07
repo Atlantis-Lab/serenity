@@ -9,14 +9,14 @@ import { UserLoader }                               from '../dataloaders'
 import { Discussion }                               from '../types'
 
 @Injectable()
-@Resolver(of => Discussion)
+@Resolver((of) => Discussion)
 export class DiscussionResolver {
   @ResolveProperty()
   recipient(
     @Root() { customerId, specialistId }: any,
     @Loader(UserLoader.name)
     userLoader: DataLoader<any, any>,
-    @Context('user') userId: string,
+    @Context('user') userId: string
   ) {
     if (userId === customerId) {
       return userLoader.load(specialistId)

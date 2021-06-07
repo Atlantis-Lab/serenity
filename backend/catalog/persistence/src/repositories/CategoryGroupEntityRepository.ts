@@ -17,7 +17,7 @@ export class CategoryGroupEntityRepository extends WriteRepository<
   constructor(
     private readonly connection: Connection,
     private readonly logger: Logger,
-    private readonly bus: Bus,
+    private readonly bus: Bus
   ) {
     // @ts-ignore
     super(CategoryGroupEntity, CategoryGroup, connection, bus, logger)

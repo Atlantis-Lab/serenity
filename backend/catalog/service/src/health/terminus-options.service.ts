@@ -10,7 +10,7 @@ import {
 export class TerminusOptionsService implements TerminusOptionsFactory {
   constructor(
     private readonly db: TypeOrmHealthIndicator,
-    private readonly bus: BusHealthIndicator,
+    private readonly bus: BusHealthIndicator
   ) {}
 
   public createTerminusOptions(): TerminusModuleOptions {

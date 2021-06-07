@@ -46,8 +46,9 @@ export class Specialist extends AggregateRoot implements SpecialistProperties {
   update(
     interaction: PrivatePerson | Company,
     specialisation: Specialisation,
-    description?: string,
+    description?: string
   ) {
+    // @ts-ignore
     this.when(new SpecialistUpdated(this.id, interaction, specialisation, description))
   }
 

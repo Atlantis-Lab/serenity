@@ -11,7 +11,7 @@ export class ChatCreated extends Event {
     readonly chatId: string,
     readonly customerId: string,
     readonly specialistId: string,
-    readonly discussionId: string,
+    readonly discussionId: string
   ) {
     super()
   }

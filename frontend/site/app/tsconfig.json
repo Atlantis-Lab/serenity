@@ -1,8 +1,0 @@
-{
-  "extends": "@atlantis-lab/tsconfig/tsconfig.service.json",
-  "compilerOptions": {
-    "outDir": "./dist",
-    "skipLibCheck": true
-  },
-  "include": ["src"]
-}

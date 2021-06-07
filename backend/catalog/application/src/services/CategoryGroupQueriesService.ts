@@ -8,7 +8,7 @@ import { CategoryGroup }        from '@catalog/persistence'
 export class CategoryGroupQueriesService {
   constructor(
     @InjectRepository(CategoryGroup)
-    private readonly categoryGroupRepository: Repository<CategoryGroup>,
+    private readonly categoryGroupRepository: Repository<CategoryGroup>
   ) {}
 
   async findAll(filters: any = {}): Promise<any> {
@@ -20,11 +20,11 @@ export class CategoryGroupQueriesService {
       const common = `%${filters.search}%`
 
       qb.andWhere(
-        new Brackets(searchQb =>
+        new Brackets((searchQb) =>
           searchQb
             .where('group.name ILIKE :common', { common })
-            .orWhere('children.name ILIKE :common', { common }),
-        ),
+            .orWhere('children.name ILIKE :common', { common })
+        )
       )
     }
 

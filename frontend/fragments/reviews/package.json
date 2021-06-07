@@ -4,16 +4,14 @@
   "license": "MIT",
   "main": "src/index.tsx",
   "dependencies": {
-    "@testing-library/react": "9.3.2",
-    "@ui/avatar": "0.0.1",
-    "@ui/divider": "0.0.1",
-    "@ui/layout": "0.0.5",
-    "@ui/link": "0.0.5",
-    "@ui/rating": "0.0.1",
-    "@ui/text": "0.3.1",
-    "@ui/theme": "0.0.5"
-  },
-  "peerDependencies": {
+    "@ui/avatar": "workspace:frontend/ui/avatar",
+    "@ui/layout": "workspace:frontend/ui/layout",
+    "@ui/rating": "workspace:frontend/ui/rating",
+    "@ui/text": "workspace:frontend/ui/text",
+    "@ui/theme": "workspace:frontend/ui/theme",
     "react": "16.13.1"
+  },
+  "devDependencies": {
+    "@testing-library/react": "^11.2.7"
   }
 }

@@ -14,7 +14,7 @@ export class ReviewCreated extends Event {
     readonly customerId: string,
     readonly specialistId: string,
     readonly rating: number,
-    readonly comment: string,
+    readonly comment: string
   ) {
     super()
   }

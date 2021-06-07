@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 
-const getHitsUrl = id => {
+const getHitsUrl = (id) => {
   const endpoint = window.location.hostname.includes('atls.tech')
     ? 'serenity.atls.tech'
     : window.location.hostname

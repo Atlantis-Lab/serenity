@@ -2,15 +2,15 @@
   "name": "@collaboration/ee2",
   "version": "0.0.1",
   "license": "MIT",
-  "peerDependencies": {
-    "@collaboration/service": "0.0.0",
+  "dependencies": {
+    "@collaboration/service": "0.0.1",
     "@monstrs/nestjs-bus": "0.1.4",
     "@monstrs/nestjs-logger": "0.1.2",
     "@nestjs/microservices": "6.10.1",
     "@nestjs/testing": "6.10.1",
     "@node-ts/bus-core": "^0.4.0",
-    "@protos/collaboration": "0.0.0",
-    "@protos/interfaces": "0.1.0",
+    "@protos/collaboration": "0.0.1",
+    "@protos/interfaces": "0.1.1",
     "reflect-metadata": "0.1.13",
     "uuid": "3.4.0"
   }

@@ -5,7 +5,7 @@
   "private": true,
   "main": "src/index.ts",
   "devDependencies": {
-    "@design/ui": "0.3.1",
+    "@types/react": "^17",
     "@ui/button": "0.3.1",
     "@ui/drawer": "0.3.1",
     "@ui/hamburger": "0.0.1",
@@ -13,9 +13,10 @@
     "@ui/layout": "0.0.5",
     "@ui/text": "0.3.1"
   },
-  "peerDependencies": {
-    "@emotion/styled": "^10.0.0",
-    "react": "16.13.1",
+  "dependencies": {
+    "@emotion/react": "^11.4.0",
+    "@emotion/styled": "^11.3.0",
+    "react": "^17.0.2",
     "styled-tools": "^1.7.0"
   }
 }

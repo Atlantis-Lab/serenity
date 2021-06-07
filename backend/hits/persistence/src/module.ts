@@ -10,7 +10,9 @@ const feature = TypeOrmModule.forFeature([Counter, View, Activity])
 @Global()
 @Module({
   imports: [LoggerModule, feature.module, TypeOrmModule.forRoot(config)],
+  // @ts-ignore
   providers: [...feature.providers],
+  // @ts-ignore
   exports: [...feature.exports],
 })
 export class PersistenceModule {}

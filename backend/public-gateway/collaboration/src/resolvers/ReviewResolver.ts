@@ -9,13 +9,13 @@ import { UserLoader }                      from '../dataloaders'
 import { Review }                          from '../types'
 
 @Injectable()
-@Resolver(of => Review)
+@Resolver((of) => Review)
 export class ReviewResolver {
   @ResolveProperty()
   async customer(
     @Root() { customerId }: any,
     @Loader(UserLoader.name)
-    userLoader: DataLoader<any, any>,
+    userLoader: DataLoader<any, any>
   ) {
     const user = await userLoader.load(customerId)
 

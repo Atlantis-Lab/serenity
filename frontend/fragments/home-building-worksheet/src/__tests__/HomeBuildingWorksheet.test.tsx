@@ -20,7 +20,7 @@ describe('Home-building worksheet', () => {
           <ThemeProvider>
             <TestComponent />
           </ThemeProvider>
-        </IntlProvider>,
+        </IntlProvider>
       )
 
       expect(asFragment()).toMatchSnapshot()

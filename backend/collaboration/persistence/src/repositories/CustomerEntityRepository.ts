@@ -15,7 +15,7 @@ export class CustomerEntityRepository extends WriteRepository<CustomerEntity, Cu
   constructor(
     private readonly connection: Connection,
     private readonly logger: Logger,
-    private readonly bus: Bus,
+    private readonly bus: Bus
   ) {
     // @ts-ignore
     super(CustomerEntity, Customer, connection, bus, logger)

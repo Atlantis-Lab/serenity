@@ -12,7 +12,7 @@ export class UploadService {
   constructor(
     private readonly uploadRepository: UploadEntityRepository,
     private readonly fileRepository: FileEntityRepository,
-    private readonly signedUrlService: SignedUrlService,
+    private readonly signedUrlService: SignedUrlService
   ) {}
 
   async create(command: CreateUploadCommand): Promise<any> {

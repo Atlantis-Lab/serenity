@@ -9,14 +9,14 @@ interface LabelProps {
   size?: string
 }
 
-const color = switchProp('color', ({ theme }) => ({
+const color = switchProp('color', ({ theme }: any) => ({
   black: {
     background: theme.colors.black,
     color: theme.colors.white,
   },
 }))
 
-const size = switchProp('size', ({ theme }) => ({
+const size = switchProp('size', () => ({
   normal: {
     borderRadius: 6,
     height: 32,
@@ -41,7 +41,7 @@ const Label = styled.div<LabelProps>(
   }),
   typography,
   color,
-  size,
+  size
 )
 
 Label.defaultProps = {

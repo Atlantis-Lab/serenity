@@ -5,14 +5,13 @@
   "private": true,
   "main": "src/index.ts",
   "dependencies": {
-    "framer-motion": "1.6.15",
-    "react-scrolllock": "4.0.1"
-  },
-  "peerDependencies": {
-    "@emotion/styled": "^10.0.0",
+    "@emotion/react": "^11.4.0",
+    "@emotion/styled": "^11.3.0",
+    "framer-motion": "^4.1.17",
     "global": "4.4.0",
-    "react": "16.13.1",
-    "react-dom": "^16.9.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scrolllock": "^5.0.1",
     "styled-tools": "^1.7.0"
   }
 }

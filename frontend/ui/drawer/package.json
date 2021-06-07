@@ -4,24 +4,23 @@
   "license": "MIT",
   "main": "src/index.ts",
   "devDependencies": {
-    "@design/ui": "0.3.1",
+    "@types/react": "^17.0.6",
+    "@types/react-dom": "^17",
+    "@types/react-motion": "^0",
     "@ui/button": "0.3.1",
     "@ui/icons": "0.1.1",
     "@ui/link": "0.0.5",
-    "emotion": "10.0.27",
-    "next": "10.0.5"
+    "next": "^10.2.3"
   },
   "dependencies": {
-    "events": "3.0.0",
-    "framer-motion": "1.6.15",
-    "global": "4.4.0",
-    "react-dom": "16.13.1",
-    "react-motion": "0.5.2",
-    "react-scrolllock": "4.0.1"
-  },
-  "peerDependencies": {
-    "@emotion/styled": "^10.0.0",
-    "react": "16.13.1",
+    "@emotion/react": "^11.4.0",
+    "@emotion/styled": "^11.3.0",
+    "framer-motion": "^4.1.17",
+    "global": "^4.4.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-motion": "^0.5.2",
+    "react-scrolllock": "^5.0.1",
     "styled-system": "^5.1.0"
   }
 }

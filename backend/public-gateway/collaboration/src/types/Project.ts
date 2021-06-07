@@ -54,7 +54,7 @@ export class Project {
   replyCount: number
 
   @Field({ nullable: true })
-  get publicationDate(): Date {
+  get publicationDate(): Date | undefined {
     return this.publishedAt
   }
 

@@ -5,12 +5,12 @@
   "private": true,
   "main": "src/index.ts",
   "devDependencies": {
-    "@design/ui": "0.3.1",
+    "@types/react": "^17",
     "@ui/icons": "0.1.1",
     "rc-collapse": "1.11.8"
   },
-  "peerDependencies": {
-    "emotion": "^10.0.0",
-    "react": "16.13.1"
+  "dependencies": {
+    "@emotion/react": "^11.4.0",
+    "react": "^17.0.2"
   }
 }

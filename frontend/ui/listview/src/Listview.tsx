@@ -13,6 +13,7 @@ interface ActiveProps {
 
 const activeInnerMenu = ifProp('active', { left: 0 })
 
+// @ts-ignore
 const InnerMenu = styled.div<ActiveProps>(
   {
     display: 'flex',
@@ -28,11 +29,12 @@ const InnerMenu = styled.div<ActiveProps>(
     height: '100%',
     overflow: 'auto',
   },
-  activeInnerMenu,
+  activeInnerMenu
 )
 
 const activeBackward = ifProp('active', { cursor: 'pointer', opacity: 1 })
 
+// @ts-ignore
 const Backward = styled.div<ActiveProps>(
   {
     display: 'flex',
@@ -41,7 +43,7 @@ const Backward = styled.div<ActiveProps>(
     justifyContent: 'center',
     opacity: 0,
   },
-  activeBackward,
+  activeBackward
 )
 
 export const Listview = ({ data = [], path = '', closeIcon }) => {
@@ -76,7 +78,7 @@ export const Listview = ({ data = [], path = '', closeIcon }) => {
           position='absolute'
           overflow='auto'
         >
-          {data.map(item => {
+          {data.map((item: any) => {
             if (!item.children) {
               return (
                 <Layout key={item.id} flexShrink={0}>
@@ -101,12 +103,12 @@ export const Listview = ({ data = [], path = '', closeIcon }) => {
           })}
           <Layout flexBasis={20} flexShrink={0} />
         </Box>
-        {data.map(item => {
+        {data.map((item: any) => {
           if (!item.children) return false
 
           return (
             <InnerMenu active={activeMenu === item.id} key={item.id}>
-              {item.children.map(links => (
+              {item.children.map((links) => (
                 <Item key={links.id} href={`${path}${links.id}`}>
                   {links.name}
                 </Item>

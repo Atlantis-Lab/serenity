@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
+
 import { MigrationInterface, QueryRunner } from 'typeorm'
 
 export class DropSending1566149967071 implements MigrationInterface {

@@ -16,23 +16,23 @@ const svgrTemplate = ({ template }, opts, { componentName, jsx }) => {
   return typeScriptTpl.ast`
  import React from 'react'
 
-    export const ${componentName} = (props: any) => ${jsx}
+    export const ${componentName} = (props: React.SVGProps<SVGSVGElement>) => ${jsx}
   `
 }
 
-const read = files =>
+const read = (files) =>
   Promise.all(
-    files.map(async iconPath => ({
+    files.map(async (iconPath) => ({
       name: `${camelcase(path.basename(iconPath, path.extname(iconPath)), {
         pascalCase: true,
       }).replace('50+', 'FiftyPlus')}Icon`,
       source: (await fs.readFileAsync(iconPath)).toString(),
-    })),
+    }))
   )
 
-const compile = icons =>
+const compile = (icons) =>
   Promise.all(
-    icons.map(async icon => ({
+    icons.map(async (icon) => ({
       name: icon.name,
       code: await svgr(
         icon.source.replace(/mask0/g, icon.name),
@@ -41,30 +41,28 @@ const compile = icons =>
           template: svgrTemplate,
           replaceAttrValues: replacements[icon.name] || {},
         },
-        { componentName: icon.name.replace('50+', 'FiftyPlus') },
+        { componentName: icon.name.replace('50+', 'FiftyPlus') }
       ),
-    })),
+    }))
   )
 
-const save = async sources => {
-  return Promise.all(
-    sources.map(source =>
+const save = async (sources) =>
+  Promise.all(
+    sources.map((source) =>
       fs.writeFileAsync(
         path.join(TARGET_DIR, `${source.name}.tsx`),
-        // @ts-ignore
         `/* eslint-disable */\n${prettier.format(source.code, {
           parser: 'babel',
           ...prettierConfig,
-        })}`,
-      ),
-    ),
+        })}`
+      )
+    )
   )
-}
 
-const createIndex = sources =>
+const createIndex = (sources) =>
   fs.writeFileAsync(
     path.join(TARGET_DIR, 'index.ts'),
-    sources.map(source => `export * from './${source.name}'`).join('\n'),
+    sources.map((source) => `export * from './${source.name}'`).join('\n')
   )
 
 const build = async () => {

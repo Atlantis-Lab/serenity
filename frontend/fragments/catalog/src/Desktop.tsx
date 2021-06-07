@@ -10,7 +10,7 @@ export const Desktop = ({ data, visible, linksPath }) => (
   <SlideDrawer visible={visible} top={56}>
     <Box position='absolute' width='100%' flexDirection='column'>
       <Masonry style={{ padding: '60px 20px 0' }}>
-        {data.map(item => (
+        {data.map((item) => (
           <Column key={item.id} maxWidth={260} px={20} pb={60}>
             <Layout>
               <Text fontSize='extra' fontWeight='medium' lineHeight='extra'>
@@ -19,7 +19,7 @@ export const Desktop = ({ data, visible, linksPath }) => (
             </Layout>
             <Layout flexBasis={28} />
             {item.children &&
-              item.children.map(links => (
+              item.children.map((links) => (
                 <Layout key={links.id} pb={12}>
                   <Link
                     href={`${linksPath}${links.id}`}

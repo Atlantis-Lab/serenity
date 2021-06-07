@@ -27,6 +27,7 @@ const opacities = switchProp('opacity', () => ({
   },
 }))
 
+// @ts-ignore
 const StyledContainer = styled(motion.nav)<ContainerProps>(
   {
     width: '100%',
@@ -43,14 +44,13 @@ const StyledContainer = styled(motion.nav)<ContainerProps>(
     alignItems: 'center',
   },
   isVisible,
-  opacities,
+  opacities
 )
 
 export const Modal = ({ children, visible, onClose, opacity = 'large' }) => {
+  const node = useRef(null)
   if (typeof window !== 'undefined') {
-    const node = useRef(null)
-
-    const handleClick = event => {
+    const handleClick = (event) => {
       if (!(node.current && node.current.children[0].contains(event.target))) {
         onClose()
       }
@@ -70,7 +70,7 @@ export const Modal = ({ children, visible, onClose, opacity = 'large' }) => {
             {children}
           </StyledContainer>
         </ScrollLock>,
-        document.body,
+        document.body
       )
     }
   }

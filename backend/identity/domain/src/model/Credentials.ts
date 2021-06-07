@@ -4,7 +4,7 @@ import uuid   from 'uuid/v4'
 export class Credentials {
   password: string
 
-  resetToken: string
+  resetToken: string | null
 
   constructor(password: string) {
     this.password = password

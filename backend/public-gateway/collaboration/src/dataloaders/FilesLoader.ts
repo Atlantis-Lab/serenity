@@ -22,11 +22,12 @@ export class FilesLoader implements NestDataLoader, OnModuleInit {
   getFiles(id: string[]) {
     return this.filesService
       .getFiles({ filters: { id } })
-      .pipe(map(data => data.rows))
+      .pipe(map((data) => data.rows))
       .toPromise()
   }
 
   generateDataLoader(): DataLoader<any, any> {
+    // @ts-ignore
     return new DataLoader<string[], files.File[]>(this.getFiles.bind(this))
   }
 }

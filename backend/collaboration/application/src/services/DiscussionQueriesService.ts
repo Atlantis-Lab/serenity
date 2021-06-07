@@ -19,7 +19,7 @@ export class DiscussionQueriesService {
     @InjectRepository(Discussion)
     private readonly discussionRepository: Repository<Discussion>,
     @InjectRepository(Chat)
-    private readonly chatRepository: Repository<Chat>,
+    private readonly chatRepository: Repository<Chat>
   ) {}
 
   async findAll(pager?: any, filters?: any): Promise<FindAllResponse<Discussion>> {
@@ -89,7 +89,7 @@ export class DiscussionQueriesService {
     const rows = await this.discussionRepository
       .createQueryBuilder('discussion')
       .leftJoinAndSelect('discussion.messages', 'messages')
-      .where('discussion.id IN (:...id)', { id: chats.map(chat => chat.discussionId) })
+      .where('discussion.id IN (:...id)', { id: chats.map((chat) => chat.discussionId) })
       .getMany()
 
     return {

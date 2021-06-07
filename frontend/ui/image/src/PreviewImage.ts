@@ -12,7 +12,7 @@ export const PreviewImage = styled.div(
   }),
   layout,
   space,
-  background,
+  background
 )
 
 export const PreviewImageContainer = styled.div({

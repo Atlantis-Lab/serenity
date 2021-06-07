@@ -2,7 +2,7 @@ import gql                                              from 'graphql-tag'
 /* eslint-disable no-else-return */
 import { useCallback, useEffect, useReducer, useState } from 'react'
 
-import { useMutation }                                  from '@apollo/react-hooks' // eslint-disable-line import/no-extraneous-dependencies
+import { useMutation }                                  from '@apollo/client' // eslint-disable-line import/no-extraneous-dependencies
 
 const messageMutation = gql`
   mutation AddProjectReply($input: AddProjectReplyInput!) {
@@ -119,7 +119,7 @@ const reducer = (state, action) => {
     const comments = {}
     const { length } = Object.keys(state.comments)
     if (length === 0) {
-      action.replies.forEach(item => {
+      action.replies.forEach((item) => {
         comments[item.id] = ''
       })
     }
@@ -149,13 +149,13 @@ export const useCreate = (projectId, replies) => {
   }, [replies])
 
   const onChangeMessage = useCallback(
-    value => dispatch({ type: 'CHANGE', field: 'message', value }),
-    [],
+    (value) => dispatch({ type: 'CHANGE', field: 'message', value }),
+    []
   )
 
   const onChangeComment = useCallback(
     (value, id) => dispatch({ type: 'CHANGE_COMMENTS', id, value }),
-    [],
+    []
   )
 
   const [onSaveMessage, { data: messageData, loading }] = useMutation<any>(messageMutation, {
@@ -169,7 +169,7 @@ export const useCreate = (projectId, replies) => {
 
   const [saveComment, { data: commentData }] = useMutation<any>(commentMutation)
 
-  const onSaveComment = id => {
+  const onSaveComment = (id) => {
     dispatch({ type: 'CHANGE', field: 'activeId', value: id })
     saveComment({
       variables: {
@@ -264,7 +264,7 @@ export const useCreate = (projectId, replies) => {
 
       dispatch({
         type: 'LOAD',
-        replies: state.replies.map(item => {
+        replies: state.replies.map((item) => {
           if (item.id === state.activeId) {
             item.discussion.messages.push(responseComment.result)
           }
@@ -272,7 +272,7 @@ export const useCreate = (projectId, replies) => {
         }),
       })
     }
-  }, [responseComment])
+  }, [responseComment, state.activeId, state.comments, state.replies])
 
   const errors =
     (responseMessage && responseMessage.errors) || (responseComment && responseComment.errors) || {}

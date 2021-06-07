@@ -10,7 +10,7 @@ import { files }                     from '@protos/interfaces'
 import { Profile }                   from '../types'
 
 @Injectable()
-@Resolver(of => Profile)
+@Resolver((of) => Profile)
 export class ProfilePhotoResolver implements OnModuleInit {
   @Client(clientOptions)
   private readonly client: ClientGrpc
@@ -29,6 +29,6 @@ export class ProfilePhotoResolver implements OnModuleInit {
 
     return this.filesService
       .getFiles({ filters: { id: [profile.photo.id] } })
-      .pipe(map(data => data.rows[0]))
+      .pipe(map((data) => (data as any).rows[0]))
   }
 }

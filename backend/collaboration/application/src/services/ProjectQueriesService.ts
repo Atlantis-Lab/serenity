@@ -17,7 +17,7 @@ interface FindAllResponse<T> {
 export class ProjectQueriesService {
   constructor(
     @InjectRepository(Project)
-    private readonly projectRepository: Repository<Project>,
+    private readonly projectRepository: Repository<Project>
   ) {}
 
   async findAll(pager?: any, filters?: any): Promise<FindAllResponse<Project>> {

@@ -11,7 +11,7 @@ export class UpdateProjectInput {
   @Field({ nullable: true })
   description: string
 
-  @Field(type => [ID])
+  @Field((type) => [ID])
   photos: string[]
 
   @Field()

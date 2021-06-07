@@ -15,6 +15,7 @@
     "@nestjs/typeorm": "6.2.0",
     "@node-ts/bus-core": "0.4.9",
     "class-validator": "0.11.0",
+    "rxjs": "^7.0.1",
     "typeorm": "0.2.19",
     "uuid": "3.4.0"
   }

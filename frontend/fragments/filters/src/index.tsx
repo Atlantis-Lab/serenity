@@ -12,16 +12,17 @@ const FiltersFragment = ({
   const data = useData()
   const [activeKey, setActiveKey] = useState([])
 
-  const onChange = value => {
+  const onChange = (value) => {
     setActiveKey(value)
   }
 
   useEffect(() => {
     if (data && activeCategory) {
       const keys = []
-      data.map(item => {
-        item.children.map(child => {
+      data.map((item) => {
+        item.children.map((child: any) => {
           if (child.id === activeCategory) {
+            // @ts-ignore
             keys.push(item.id)
           }
           return true
@@ -30,7 +31,7 @@ const FiltersFragment = ({
       })
       setActiveKey(keys)
     }
-  }, [data])
+  }, [data, activeCategory])
 
   return (
     <Filters

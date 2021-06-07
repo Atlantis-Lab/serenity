@@ -11,13 +11,13 @@ import { CategoriesLoader }                from '../dataloaders'
 import { Specialisation }                  from '../types'
 
 @Injectable()
-@Resolver(of => Specialisation)
+@Resolver((of) => Specialisation)
 export class SpecialisationResolver {
   @ResolveProperty()
   main(
     @Root() { main }: collaboration.Specialisation,
     @Loader(CategoriesLoader.name)
-    categoriesLoader: DataLoader<any, Category>,
+    categoriesLoader: DataLoader<any, Category>
   ) {
     if (!(main && main.length > 0)) {
       return []
@@ -30,7 +30,7 @@ export class SpecialisationResolver {
   additional(
     @Root() { additional }: collaboration.Specialisation,
     @Loader(CategoriesLoader.name)
-    categoriesLoader: DataLoader<any, Category>,
+    categoriesLoader: DataLoader<any, Category>
   ) {
     if (!(additional && additional.length > 0)) {
       return []

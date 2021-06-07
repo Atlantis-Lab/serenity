@@ -11,7 +11,9 @@ const feature = TypeOrmModule.forFeature([Upload, File])
 @Global()
 @Module({
   imports: [LoggerModule, feature.module, TypeOrmModule.forRoot(config)],
+  // @ts-ignore
   providers: [...feature.providers, UploadEntityRepository, FileEntityRepository],
+  // @ts-ignore
   exports: [...feature.exports, UploadEntityRepository, FileEntityRepository],
 })
 export class PersistenceModule {}

@@ -3,9 +3,9 @@ import { useIntl }           from 'react-intl'
 
 import { CeilingsWorksheet } from './CeilingsWorksheet'
 
-const CeilingsWorksheetFragment = ({ id = '', value, onChange = a => {} }) => {
-  if (id !== '2abd818f-cae3-4941-97dd-a1187fc47cdd') return null
+const CeilingsWorksheetFragment = ({ id = '', value, onChange = (a) => {} }) => {
   const intl = useIntl()
+  if (id !== '2abd818f-cae3-4941-97dd-a1187fc47cdd') return null
   const data = {
     ceilingType: value.ceilingType || {},
     size: value.size || {},
@@ -31,27 +31,27 @@ const CeilingsWorksheetFragment = ({ id = '', value, onChange = a => {} }) => {
     onChange(data)
   }
 
-  const onChangeMounting = name => {
+  const onChangeMounting = (name) => {
     data.mounting[name] = !data.mounting[name]
     onChange(data)
   }
 
-  const onChangeInstallEngineeringSystems = name => {
+  const onChangeInstallEngineeringSystems = (name) => {
     data.installEngineeringSystems[name] = !data.installEngineeringSystems[name]
     onChange(data)
   }
 
-  const onChangeInstallationRoom = name => {
+  const onChangeInstallationRoom = (name) => {
     data.installationRoom[name] = !data.installationRoom[name]
     onChange(data)
   }
 
-  const onChangeProjectStage = name => {
+  const onChangeProjectStage = (name) => {
     data.projectStage[name] = !data.projectStage[name]
     onChange(data)
   }
 
-  const onChangeRequireAdditionally = name => {
+  const onChangeRequireAdditionally = (name) => {
     data.requireAdditionally[name] = !data.requireAdditionally[name]
     onChange(data)
   }

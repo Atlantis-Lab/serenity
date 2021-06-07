@@ -16,25 +16,24 @@ export class SpecialistMutations implements OnModuleInit {
   private collaborationService: collaboration.CollaborationService
 
   onModuleInit() {
-    this.collaborationService = this.client.getService<collaboration.CollaborationService>(
-      'CollaborationService',
-    )
+    this.collaborationService =
+      this.client.getService<collaboration.CollaborationService>('CollaborationService')
   }
 
-  @Mutation(returns => UpdateSpecialistResponse)
+  @Mutation((returns) => UpdateSpecialistResponse)
   updateSpecialist(
     @Args('input')
     input: UpdateSpecialistInput,
-    @Context('user') id: string,
+    @Context('user') id: string
   ) {
     return this.collaborationService.updateSpecialist({ ...input, id })
   }
 
-  @Mutation(returns => ChangeAccountTypeResponse)
+  @Mutation((returns) => ChangeAccountTypeResponse)
   changeAccountType(
     @Args('input')
     input: ChangeAccountTypeInput,
-    @Context('user') specialistId: string,
+    @Context('user') specialistId: string
   ) {
     return this.collaborationService.changeAccountType({
       ...input,

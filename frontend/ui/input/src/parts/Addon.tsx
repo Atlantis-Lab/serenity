@@ -10,7 +10,7 @@ const base: styleFn = () => ({
   boxSizing: 'border-box',
 })
 
-const size: styleFn = switchProp('size', ({ theme }) => ({
+const size: styleFn = switchProp('size', ({ theme }: any) => ({
   normal: {
     fontSize: theme.fontSizes.tiny,
     paddingRight: 20,

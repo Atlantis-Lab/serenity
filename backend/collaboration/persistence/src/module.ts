@@ -41,6 +41,7 @@ const feature = TypeOrmModule.forFeature([
 @Module({
   imports: [LoggerModule, feature.module, TypeOrmModule.forRoot(config)],
   providers: [
+    // @ts-ignore
     ...feature.providers,
     SpecialistEntityRepository,
     CustomerEntityRepository,
@@ -52,6 +53,7 @@ const feature = TypeOrmModule.forFeature([
     ChatEntityRepository,
   ],
   exports: [
+    // @ts-ignore
     ...feature.exports,
     SpecialistEntityRepository,
     CustomerEntityRepository,

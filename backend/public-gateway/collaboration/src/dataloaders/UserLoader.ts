@@ -22,11 +22,12 @@ export class UserLoader implements NestDataLoader, OnModuleInit {
   getUsers(id: string[]) {
     return this.identityService
       .getUsers({ filters: { id } })
-      .pipe(map(data => data.rows))
+      .pipe(map((data) => data.rows))
       .toPromise()
   }
 
   generateDataLoader(): DataLoader<any, any> {
+    // @ts-ignore
     return new DataLoader<string, identity.User>(this.getUsers.bind(this))
   }
 }

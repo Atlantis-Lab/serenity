@@ -1,0 +1,20 @@
+{
+  "name": "@accounts/registration-profile-page",
+  "version": "0.0.0",
+  "license": "MIT",
+  "main": "src/index.tsx",
+  "devDependencies": {
+    "@testing-library/react": "9.5.0",
+    "@ui/button": "workspace:frontend/ui/button",
+    "@ui/icons": "workspace:frontend/ui/icons",
+    "@ui/input": "workspace:frontend/ui/input",
+    "@ui/layout": "workspace:frontend/ui/layout",
+    "@ui/link": "workspace:frontend/ui/link",
+    "@ui/text": "workspace:frontend/ui/text"
+  },
+  "dependencies": {
+    "react": "16.14.0",
+    "react-helmet": "^5.2.0",
+    "react-intl": "5.3.2"
+  }
+}

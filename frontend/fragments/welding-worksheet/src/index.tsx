@@ -3,9 +3,9 @@ import { useIntl }          from 'react-intl'
 
 import { WeldingWorksheet } from './WeldingWorksheet'
 
-const WeldingWorksheetFragment = ({ id = '', value, onChange = a => {} }) => {
-  if (id !== 'e6e35fc9-a6f8-4dcd-98f2-87b05e5155c9') return null
+const WeldingWorksheetFragment = ({ id = '', value, onChange = (a) => {} }) => {
   const intl = useIntl()
+  if (id !== 'e6e35fc9-a6f8-4dcd-98f2-87b05e5155c9') return null
   const data = {
     needToWeld: value.needToWeld || {},
     whereToWeld: value.whereToWeld || {},
@@ -15,27 +15,27 @@ const WeldingWorksheetFragment = ({ id = '', value, onChange = a => {} }) => {
     type: 'welding',
   }
 
-  const onChangeNeedToWeld = name => {
+  const onChangeNeedToWeld = (name) => {
     data.needToWeld[name] = !data.needToWeld[name]
     onChange(data)
   }
 
-  const onChangeWhereToWeld = name => {
+  const onChangeWhereToWeld = (name) => {
     data.whereToWeld[name] = !data.whereToWeld[name]
     onChange(data)
   }
 
-  const onChangeTask = name => {
+  const onChangeTask = (name) => {
     data.task[name] = !data.task[name]
     onChange(data)
   }
 
-  const onChangeProjectStage = name => {
+  const onChangeProjectStage = (name) => {
     data.projectStage[name] = !data.projectStage[name]
     onChange(data)
   }
 
-  const onChangeRequireAdditionally = name => {
+  const onChangeRequireAdditionally = (name) => {
     data.requireAdditionally[name] = !data.requireAdditionally[name]
     onChange(data)
   }

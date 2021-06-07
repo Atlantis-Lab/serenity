@@ -58,10 +58,10 @@ export const CeilingsWorksheet = ({
             <Select
               optionLabelProp='label'
               value={ceilingType.group}
-              onChange={value => onChangeCeilingType('group', value)}
+              onChange={(value) => onChangeCeilingType('group', value)}
               placeholder={intl.formatMessage(messages.ceilingTypePlaceholder)}
             >
-              {Object.keys(ceilingTypes).map(item => (
+              {Object.keys(ceilingTypes).map((item) => (
                 <Option
                   key={ceilingTypes[item].id}
                   value={ceilingTypes[item].id}
@@ -77,12 +77,12 @@ export const CeilingsWorksheet = ({
             <Select
               optionLabelProp='label'
               value={ceilingType.type}
-              onChange={value => onChangeCeilingType('type', value)}
+              onChange={(value) => onChangeCeilingType('type', value)}
               placeholder={intl.formatMessage(messages.ceilingTypePlaceholder)}
               disabled={!ceilingType.group}
             >
               {ceilingTypes[ceilingType.group] &&
-                ceilingTypes[ceilingType.group].children.map(item => (
+                ceilingTypes[ceilingType.group].children.map((item) => (
                   <Option key={item.id} value={item.id} label={item.name}>
                     {item.name}
                   </Option>
@@ -109,7 +109,7 @@ export const CeilingsWorksheet = ({
               type='number'
               min={0}
               value={size.length || ''}
-              onChange={value => onChangeSize('length', value)}
+              onChange={(value) => onChangeSize('length', value)}
               placeholder={intl.formatMessage(messages.length)}
               addonAfter={intl.formatMessage(messages.sizeMeter)}
             />
@@ -120,7 +120,7 @@ export const CeilingsWorksheet = ({
               type='number'
               min={0}
               value={size.width || ''}
-              onChange={value => onChangeSize('width', value)}
+              onChange={(value) => onChangeSize('width', value)}
               placeholder={intl.formatMessage(messages.width)}
               addonAfter={intl.formatMessage(messages.sizeMeter)}
             />

@@ -7,13 +7,8 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @protos/mailer
 
-
-
-
-
 # 0.1.0 (2020-09-28)
-
 
 ### Features
 
-* **backend:** init mailer service ([d0a74cf](https://github.com/Atlantis-Lab/serenity/commit/d0a74cfe468eb7320ea937d6f7ce2b730fe95913))
+- **backend:** init mailer service ([d0a74cf](https://github.com/Atlantis-Lab/serenity/commit/d0a74cfe468eb7320ea937d6f7ce2b730fe95913))

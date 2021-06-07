@@ -5,12 +5,11 @@
   "private": true,
   "main": "src/index.ts",
   "devDependencies": {
-    "@design/ui": "0.3.1",
     "@ui/icons": "0.1.1",
     "rc-select": "9.2.2"
   },
-  "peerDependencies": {
-    "emotion": "^10.0.0",
+  "dependencies": {
+    "@emotion/react": "^11.4.0",
     "react": "16.13.1"
   }
 }

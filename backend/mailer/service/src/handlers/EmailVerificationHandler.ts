@@ -14,7 +14,7 @@ export class EmailVerificationHandler implements Handler<UserRegistered> {
     @InjectRepository(Sending)
     private readonly sendingRepository: Repository<Sending>,
     private transport: Transport,
-    private renderer: Renderer,
+    private renderer: Renderer
   ) {}
 
   async handle({ email }: UserRegistered): Promise<void> {
@@ -23,7 +23,7 @@ export class EmailVerificationHandler implements Handler<UserRegistered> {
         template: 'email-verification',
         email: email.address,
         payload: { email } as any,
-      }),
+      })
     )
 
     const { subject, html, text } = await this.renderer.render('email-verification', {

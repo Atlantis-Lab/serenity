@@ -7,7 +7,9 @@ export default ({ url }) => {
   const data = url.query || {}
   const intl = useIntl()
 
-  const link = `${process.env.ACCOUNTS_URL}/verify/${data.email.verificationToken}`
+  const link = `${process.env.ACCOUNTS_URL}/verify/${
+    data && data.email && data.email.verificationToken
+  }`
 
   return <Template {...data} link={link} intl={intl} />
 }

@@ -10,7 +10,7 @@ export class TrackService {
     @InjectRepository(Counter)
     private readonly counterRepository: Repository<Counter>,
     @InjectRepository(View)
-    private readonly viewRepository: Repository<View>,
+    private readonly viewRepository: Repository<View>
   ) {}
 
   async view(subject: string, resource: string): Promise<any> {
@@ -19,7 +19,7 @@ export class TrackService {
         this.viewRepository.create({
           subject,
           resource,
-        }),
+        })
       )
 
       const counter = await this.counterRepository.findOne(resource)
@@ -29,7 +29,7 @@ export class TrackService {
           this.counterRepository.create({
             id: resource,
             value: 1,
-          }),
+          })
         )
       } else {
         await this.counterRepository.manager.increment(Counter, { id: resource }, 'value', 1)

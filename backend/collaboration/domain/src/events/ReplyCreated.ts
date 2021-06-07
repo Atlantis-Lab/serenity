@@ -11,7 +11,7 @@ export class ReplyCreated extends Event {
     readonly replyId: string,
     readonly projectId: string,
     readonly specialistId: string,
-    readonly discussionId: string,
+    readonly discussionId: string
   ) {
     super()
   }

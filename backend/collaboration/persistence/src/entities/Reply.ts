@@ -29,7 +29,7 @@ export class Reply {
   @Column()
   specialistId: string
 
-  @OneToOne(type => Discussion)
+  @OneToOne((type) => Discussion)
   @JoinColumn()
   discussion: Discussion | string
 

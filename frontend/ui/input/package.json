@@ -5,18 +5,19 @@
   "private": true,
   "main": "src/index.ts",
   "devDependencies": {
-    "@design/ui": "0.3.1",
     "@styled-system/should-forward-prop": "^5.1.0",
+    "@types/react": "^17",
+    "@types/react-text-mask": "^5",
+    "@types/styled-system": "^5.1.11",
     "@ui/icons": "0.1.1",
     "styled-system": "^5.1.0",
     "styled-tools": "^1.7.0"
   },
   "dependencies": {
-    "react-text-mask": "5.4.3",
-    "text-mask-addons": "3.8.0"
-  },
-  "peerDependencies": {
-    "@emotion/styled": "^10.0.0",
-    "react": "16.13.1"
+    "@emotion/react": "^11.4.0",
+    "@emotion/styled": "^11.3.0",
+    "react": "^17.0.2",
+    "react-text-mask": "^5.4.3",
+    "text-mask-addons": "^3.8.0"
   }
 }

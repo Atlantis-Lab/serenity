@@ -16,10 +16,11 @@ const Avatar = styled.div<AvatarProps>(
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
   }),
-  layout,
+  layout
 )
 
 Avatar.defaultProps = {
+  // @ts-ignore
   src: null,
   width: 40,
   height: 40,

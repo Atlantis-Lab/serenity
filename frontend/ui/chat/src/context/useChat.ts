@@ -3,7 +3,7 @@ import { useCallback, useContext, useEffect, useMemo, useState } from 'react'
 import { ChatContext }                                           from './ChatContext'
 import { ChatStore }                                             from './ChatStore'
 
-export const useChat = id => {
+export const useChat = (id) => {
   const store: ChatStore = useContext(ChatContext)
 
   if (!store) {
@@ -22,13 +22,14 @@ export const useChat = id => {
     return () => {
       store.removeListener(id, setVisible)
     }
-  }, [store])
+  }, [id, store])
 
-  const open = useMemo(() => store.open.bind(store, id), [store])
-  const close = useMemo(() => store.close.bind(store, id), [store])
-  const openChat = useCallback(recipientId => store.openChat.bind(store, id, recipientId)(), [
-    store,
-  ])
+  const open = useMemo(() => store.open.bind(store, id), [id, store])
+  const close = useMemo(() => store.close.bind(store, id), [id, store])
+  const openChat = useCallback(
+    (recipientId) => store.openChat.bind(store, id, recipientId)(),
+    [id, store]
+  )
 
   return { visible, activeChat, open, close, openChat }
 }

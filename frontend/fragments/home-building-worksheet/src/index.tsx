@@ -3,9 +3,9 @@ import { useIntl }               from 'react-intl'
 
 import { HomeBuildingWorksheet } from './HomeBuildingWorksheet'
 
-const HomeBuildingWorksheetFragment = ({ id = '', value, onChange = a => {} }) => {
-  if (id !== '354c5f69-5308-4847-bb62-7c6a022d2c16') return null
+const HomeBuildingWorksheetFragment = ({ id = '', value, onChange = (a) => {} }) => {
   const intl = useIntl()
+  if (id !== '354c5f69-5308-4847-bb62-7c6a022d2c16') return null
   const data = {
     houseType: value.houseType || {},
     foundationType: value.foundationType || {},
@@ -35,22 +35,22 @@ const HomeBuildingWorksheetFragment = ({ id = '', value, onChange = a => {} }) =
     onChange(data)
   }
 
-  const onChangeHouseArea = fieldValue => {
+  const onChangeHouseArea = (fieldValue) => {
     data.houseArea = fieldValue
     onChange(data)
   }
 
-  const onChangeFloorsNumber = fieldValue => {
+  const onChangeFloorsNumber = (fieldValue) => {
     data.floorsNumber = fieldValue
     onChange(data)
   }
 
-  const onChangeProjectStage = name => {
+  const onChangeProjectStage = (name) => {
     data.projectStage[name] = !data.projectStage[name]
     onChange(data)
   }
 
-  const onChangeRequireAdditionally = name => {
+  const onChangeRequireAdditionally = (name) => {
     data.requireAdditionally[name] = !data.requireAdditionally[name]
     onChange(data)
   }

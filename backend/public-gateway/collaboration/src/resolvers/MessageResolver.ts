@@ -9,13 +9,13 @@ import { MemberLoader, UserLoader }        from '../dataloaders'
 import { Message }                         from '../types'
 
 @Injectable()
-@Resolver(of => Message)
+@Resolver((of) => Message)
 export class MessageResolver {
   @ResolveProperty()
   async author(
     @Root() { authorId }: any,
     @Loader(UserLoader.name)
-    userLoader: DataLoader<any, any>,
+    userLoader: DataLoader<any, any>
   ) {
     const user = await userLoader.load(authorId)
 
@@ -26,7 +26,7 @@ export class MessageResolver {
   member(
     @Root() { authorId }: any,
     @Loader(MemberLoader.name)
-    memberLoader: DataLoader<any, any>,
+    memberLoader: DataLoader<any, any>
   ) {
     if (!authorId) {
       return null

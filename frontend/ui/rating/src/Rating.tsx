@@ -34,7 +34,7 @@ const StarContainer = styled.div<StarContainerProps>(
       width: 24,
       height: 24,
     },
-  }),
+  })
 )
 
 export const Rating = ({ rating = 0, size = 'normal', color = '#999999' }) => (

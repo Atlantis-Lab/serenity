@@ -18,18 +18,17 @@ export class SpecialistQueries implements OnModuleInit {
   private collaborationService: collaboration.CollaborationService
 
   onModuleInit() {
-    this.collaborationService = this.client.getService<collaboration.CollaborationService>(
-      'CollaborationService',
-    )
+    this.collaborationService =
+      this.client.getService<collaboration.CollaborationService>('CollaborationService')
   }
 
-  @Query(returns => SpecialistsList)
+  @Query((returns) => SpecialistsList)
   specialists(
     @Args({ name: 'offset', nullable: true, type: () => Int as any }, new OffsetToPagerPipe())
     pager: Pager,
 
     @Args({ name: 'filters', nullable: true, type: () => SpecialistsFilter })
-    filters: SpecialistsFilter,
+    filters: SpecialistsFilter
   ) {
     return this.collaborationService.getSpecialists({ pager, filters })
   }

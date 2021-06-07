@@ -17,7 +17,7 @@ interface FindAllResponse<T> {
 export class FileQueriesService {
   constructor(
     @InjectRepository(File)
-    private readonly fileRepository: Repository<File>,
+    private readonly fileRepository: Repository<File>
   ) {}
 
   async findAll(filters: any): Promise<FindAllResponse<File>> {
